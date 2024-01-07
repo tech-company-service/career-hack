@@ -28,6 +28,7 @@ Rails.application.configure do
     config.action_controller.perform_caching = false
 
     config.cache_store = :null_store
+    config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL'] || 'redis://localhost:6379/0' }
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options).

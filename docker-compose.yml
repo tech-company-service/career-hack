@@ -19,6 +19,10 @@ services:
       - "3001:3001"
     depends_on:
       - db
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
 
 volumes:
   mysql-data:

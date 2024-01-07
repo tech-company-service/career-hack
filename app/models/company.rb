@@ -1,0 +1,27 @@
+class Company < ApplicationRecord
+  include Hashid::Rails
+
+  #
+  # callbacks
+  #
+  after_create :set_hash_id
+
+  #
+  # validations
+  #
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :address, presence: true
+  validates :hash_id, presence: true, uniqueness: { case_sensitive: true }, length: { is: HASH_ID_LENGTH }, on: :update
+  validates :average_salary, numericality: { greater_than: 0 }
+  validates :initial_salary, numericality: { greater_than: 0 }
+  validates :average_age, numericality: { greater_than: 0 }
+  validates :employees, numericality: { greater_than: 0 }
+
+  private
+
+  def set_hash_id
+    self.hash_id = hashid
+    save
+  end
+end
