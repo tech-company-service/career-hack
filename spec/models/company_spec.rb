@@ -12,4 +12,9 @@ RSpec.describe Company, type: :model do
     it { is_expected.to validate_numericality_of(:average_age).is_greater_than(0) }
     it { is_expected.to validate_numericality_of(:employees).is_greater_than(0) }
   end
+
+  describe "Associations" do
+    it { should have_many(:company_technology_technology_categories).dependent(:destroy) }
+    it { should have_many(:technology_technology_categories).through(:company_technology_technology_categories) }
+  end
 end
