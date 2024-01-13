@@ -6,6 +6,10 @@ class Company < ApplicationRecord
   #
   after_create :set_hash_id
 
+  # Associations
+  has_many :company_technology_technology_categories
+  has_many :technology_technology_categories, through: :company_technology_technology_categories
+
   #
   # validations
   #
