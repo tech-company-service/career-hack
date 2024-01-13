@@ -10,6 +10,8 @@ class Company < ApplicationRecord
   has_many :company_technology_technology_categories, dependent: :destroy
   has_many :technology_technology_categories, through: :company_technology_technology_categories
   has_many :company_services
+  has_many :company_articles
+  has_many :articles, through: :company_articles
 
   #
   # validations

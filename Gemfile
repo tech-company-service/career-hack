@@ -24,7 +24,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem "hashid-rails", "~> 1.0"
   gem 'pry'
-  gem 'pry-rails'
+  gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false

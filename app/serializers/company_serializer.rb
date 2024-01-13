@@ -1,16 +1,7 @@
 class CompanySerializer < ActiveModel::Serializer
-  attribute :id
-  attribute :hash_id
-  attribute :name
-  attribute :description
-  attribute :address
-  attribute :average_salary
-  attribute :initial_salary
-  attribute :average_age
-  attribute :employees
-  attribute :recruit_url
-  attribute :technologies
-  attribute :technology_categories
+  attributes :id, :hash_id, :name, :description, :address, :average_salary, :initial_salary, :average_age, :employees, :recruit_url, :technologies, :technology_categories
+
+  has_many :articles, serializer: ArticleSerializer
 
   has_many :company_services, serializer: CompanyServiceSerializer
 
