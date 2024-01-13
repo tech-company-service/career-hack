@@ -12,6 +12,8 @@ class CompanySerializer < ActiveModel::Serializer
   attribute :technologies
   attribute :technology_categories
 
+  has_many :company_services, serializer: CompanyServiceSerializer
+
   def technologies
     object.technology_technology_categories.map(&:technology).uniq
   end
