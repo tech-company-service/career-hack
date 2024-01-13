@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_11_180952) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_13_065131) do
+  create_table "articles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "link", limit: 2083, null: false, collation: "utf8mb4_unicode_ci"
+    t.text "description"
+    t.datetime "published_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "companies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "hash_id", limit: 15, collation: "utf8mb4_bin"
@@ -23,6 +32,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_11_180952) do
     t.string "recruit_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "company_articles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.bigint "article_id", null: false
+    t.index ["article_id"], name: "index_company_articles_on_article_id"
+    t.index ["company_id"], name: "index_company_articles_on_company_id"
   end
 
   create_table "company_services", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -61,4 +77,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_11_180952) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "company_articles", "articles"
+  add_foreign_key "company_articles", "companies"
 end
