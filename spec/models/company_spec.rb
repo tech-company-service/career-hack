@@ -14,8 +14,7 @@ RSpec.describe Company, type: :model do
   end
 
   describe "Associations" do
-    it { should have_many(:company_technology_technology_categories) }
-    it { should have_many(:technology_technology_categories).through(:company_technology_technology_categories) }
+    it { should have_many(:job_offers) }
     it { should have_many(:company_services) }
     it { should have_many(:company_articles) }
     it { should have_many(:articles).through(:company_articles) }

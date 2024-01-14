@@ -9,7 +9,7 @@ RSpec.describe Technology, type: :model do
   end
 
   describe 'Associations' do
-    it { should have_many(:technology_technology_categories) }
-    it { should have_many(:technology_categories).through(:technology_technology_categories) }
+    it { should have_many(:job_offer_technologies) }
+    it { should have_many(:job_offers).through(:job_offer_technologies) }
   end
 end
