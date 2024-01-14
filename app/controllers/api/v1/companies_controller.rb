@@ -9,8 +9,8 @@ class Api::V1::CompaniesController < ApplicationController
   end
 
   def show
-    company = Company.includes(company_technology_technology_categories: { technology_technology_category: [:technology, :technology_category] })
-                     .find(params[:id])
+    Company.includes(company_technology_technology_categories: { technology_technology_category: [:technology, :technology_category] })
+           .find(params[:id])
     company = Company.includes(company_services: [:company]).find(params[:id])
     render json: company, serializer: CompanySerializer
   end
