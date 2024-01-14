@@ -7,8 +7,6 @@ class Company < ApplicationRecord
   after_create :set_hash_id
 
   # Associations
-  has_many :company_technology_technology_categories, dependent: :destroy
-  has_many :technology_technology_categories, through: :company_technology_technology_categories
   has_many :company_services
   has_many :company_articles
   has_many :articles, through: :company_articles
@@ -25,7 +23,7 @@ class Company < ApplicationRecord
   validates :initial_salary, numericality: { greater_than: 0 }
   validates :average_age, numericality: { greater_than: 0 }
   validates :employees, numericality: { greater_than: 0 }
-
+  
   private
 
   def set_hash_id

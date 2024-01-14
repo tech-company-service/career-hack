@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_13_133018) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_14_073111) do
   create_table "articles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", null: false
     t.string "link", limit: 2083, null: false, collation: "utf8mb4_unicode_ci"
@@ -50,11 +50,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_13_133018) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "company_technology_technology_categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "company_id"
-    t.integer "technology_technology_category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "job_offer_technologies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "job_offer_id", null: false
+    t.bigint "technology_id", null: false
+    t.index ["job_offer_id"], name: "index_job_offer_technologies_on_job_offer_id"
+    t.index ["technology_id"], name: "index_job_offer_technologies_on_technology_id"
   end
 
   create_table "job_offers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -70,22 +70,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_13_133018) do
     t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "technology_categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "technology_technology_categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "technology_id"
-    t.integer "technology_category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "category_type", null: false
   end
 
   add_foreign_key "company_articles", "articles"
   add_foreign_key "company_articles", "companies"
+  add_foreign_key "job_offer_technologies", "job_offers"
+  add_foreign_key "job_offer_technologies", "technologies"
   add_foreign_key "job_offers", "companies"
 end
