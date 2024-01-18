@@ -18,5 +18,6 @@ RSpec.describe Company, type: :model do
     it { should have_many(:company_services) }
     it { should have_many(:company_articles) }
     it { should have_many(:articles).through(:company_articles) }
+    it { should have_many(:interns).dependent(:destroy) }
   end
 end

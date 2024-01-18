@@ -4,4 +4,5 @@ class CompanySerializer < ApplicationSerializer
   has_many :articles, serializer: ArticleSerializer, if: -> { render?(:company_articles) }
   has_many :company_services, serializer: CompanyServiceSerializer, if: -> { render?(:company_services) }
   has_many :job_offers, serializer: JobOfferSerializer, if: -> { render?(:job_offers) }
+  has_many :interns, serializer: InternSerializer, if: -> { render?(:interns) }
 end

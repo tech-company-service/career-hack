@@ -11,6 +11,7 @@ class Company < ApplicationRecord
   has_many :company_articles
   has_many :articles, through: :company_articles
   has_many :job_offers, dependent: :destroy
+  has_many :interns, dependent: :destroy
 
   #
   # validations

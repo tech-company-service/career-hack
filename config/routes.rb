@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :articles, only: [:index]
       resources :companies, only: [:index, :show]
+      resources :interns, only: [:index]
     end
   end
 end

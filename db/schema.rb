@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_14_073111) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_18_152955) do
   create_table "articles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", null: false
     t.string "link", limit: 2083, null: false, collation: "utf8mb4_unicode_ci"
@@ -50,6 +50,23 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_14_073111) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "interns", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.string "title", null: false
+    t.text "description", null: false
+    t.string "link", null: false
+    t.datetime "entry_deadline_date"
+    t.datetime "started_at"
+    t.datetime "ended_at"
+    t.integer "period"
+    t.string "site"
+    t.integer "style_type", null: false
+    t.integer "recruitment_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_interns_on_company_id"
+  end
+
   create_table "job_offer_technologies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "job_offer_id", null: false
     t.bigint "technology_id", null: false
@@ -75,6 +92,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_14_073111) do
 
   add_foreign_key "company_articles", "articles"
   add_foreign_key "company_articles", "companies"
+  add_foreign_key "interns", "companies"
   add_foreign_key "job_offer_technologies", "job_offers"
   add_foreign_key "job_offer_technologies", "technologies"
   add_foreign_key "job_offers", "companies"
