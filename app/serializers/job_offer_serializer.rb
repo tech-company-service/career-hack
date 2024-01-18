@@ -1,4 +1,4 @@
-class JobOfferSerializer < ActiveModel::Serializer
+class JobOfferSerializer < ApplicationSerializer
   attributes :id, :occupation_type, :technologies
 
   # def occupation_type
