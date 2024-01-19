@@ -12,6 +12,7 @@ class Api::V1::CompaniesController < Api::ApplicationController
     company = Company.find(params[:id])
     company_services = company.company_services if options.include?(:company_services)
     job_offers = company.job_offers if options.include?(:job_offers)
+    interns = company.interns if options.include?(:interns)
 
     company = Company.includes(company_articles: [:article]).find(params[:id]) if  options.include?(:company_articles)
 
