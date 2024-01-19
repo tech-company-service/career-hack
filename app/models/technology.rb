@@ -12,5 +12,5 @@ class Technology < ApplicationRecord
   validates :description, presence: true
   validates :category_type, presence: true
 
-  enum category_type: { backend: 0, frontend: 1, mobile: 2, infla: 3, machine_learning: 4, data_science: 5}
+  enum category_type: { backend: 0, frontend: 1, mobile: 2, infla: 3, machine_learning: 4, data_science: 5 }
 end

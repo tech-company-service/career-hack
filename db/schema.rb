@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_18_152955) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_19_140233) do
   create_table "articles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", null: false
     t.string "link", limit: 2083, null: false, collation: "utf8mb4_unicode_ci"
@@ -39,6 +39,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_18_152955) do
     t.bigint "article_id", null: false
     t.index ["article_id"], name: "index_company_articles_on_article_id"
     t.index ["company_id"], name: "index_company_articles_on_company_id"
+  end
+
+  create_table "company_benefits", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.string "title", null: false
+    t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_company_benefits_on_company_id"
   end
 
   create_table "company_services", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -92,6 +101,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_18_152955) do
 
   add_foreign_key "company_articles", "articles"
   add_foreign_key "company_articles", "companies"
+  add_foreign_key "company_benefits", "companies"
   add_foreign_key "interns", "companies"
   add_foreign_key "job_offer_technologies", "job_offers"
   add_foreign_key "job_offer_technologies", "technologies"

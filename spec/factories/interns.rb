@@ -4,9 +4,9 @@ FactoryBot.define do
     title { "サイバーエージェントの夏インターン" }
     description { "サイバーエージェントでの夏のインターンシップ。プログラミングスキルを活かして、実際のプロジェクトに取り組む絶好の機会です。" }
     link { "https://example.com/internship" }
-    entry_deadline_date { Time.now + 30.days }
-    started_at { Time.now + 60.days }
-    ended_at { Time.now + 90.days }
+    entry_deadline_date { 30.days.from_now }
+    started_at { 60.days.from_now }
+    ended_at { 90.days.from_now }
     period { 30 }
     site { "東京" }
     style_type { 0 }
