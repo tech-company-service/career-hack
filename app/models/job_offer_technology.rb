@@ -8,6 +8,4 @@ class JobOfferTechnology < ApplicationRecord
   #
   # validations
   #
-  validates :job_offer_id, presence: true
-  validates :technology_id, presence: true
 end

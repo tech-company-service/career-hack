@@ -10,5 +10,5 @@ class Intern < ApplicationRecord
   validates :title, :link, :description, :style_type, :recruitment_type, presence: true
 
   enum recruitment_type: { summer_intern: 0, winter_intern: 1, all_season: 2, others: 3 }
-  enum style_type: { on_line: 0, off_line: 1, hybrid: 2}
+  enum style_type: { on_line: 0, off_line: 1, hybrid: 2 }
 end
