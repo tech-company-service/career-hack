@@ -19,4 +19,10 @@ class Api::V1::CompaniesController < Api::ApplicationController
 
     render json: company, serializer: CompanySerializer, scope: options, scope_name: :options
   end
+
+  def search
+    query = params[:query]
+    compannies = Company.where('name LIKE ?', "%#{query}%")
+    render json: compannies, each_serializer: CompanySerializer
+  end
 end
