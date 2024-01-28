@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_19_140233) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_28_135322) do
   create_table "articles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", null: false
     t.string "link", limit: 2083, null: false, collation: "utf8mb4_unicode_ci"
@@ -85,9 +85,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_19_140233) do
 
   create_table "job_offers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "company_id", null: false
-    t.integer "occupation_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name", null: false
+    t.text "description"
     t.index ["company_id"], name: "index_job_offers_on_company_id"
   end
 
@@ -96,7 +97,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_19_140233) do
     t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "category_type", null: false
   end
 
   add_foreign_key "company_articles", "articles"
