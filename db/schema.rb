@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_28_135322) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_28_142949) do
   create_table "articles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", null: false
     t.string "link", limit: 2083, null: false, collation: "utf8mb4_unicode_ci"
@@ -97,6 +97,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_28_135322) do
     t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_type", null: false
   end
 
   add_foreign_key "company_articles", "articles"
