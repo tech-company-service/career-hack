@@ -1,9 +1,5 @@
 class JobOfferSerializer < ApplicationSerializer
-  attributes :id, :occupation_type, :technologies
-
-  # def occupation_type
-  #   # 後でI18n対応
-  # end
+  attributes :id, :name, :description, :technologies
 
   def technologies
     object.job_offer_technologies.map(&:technology)
