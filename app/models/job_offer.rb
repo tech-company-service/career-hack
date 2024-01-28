@@ -9,5 +9,5 @@ class JobOffer < ApplicationRecord
   #
   # validations
   #
-  
+  validates :name, presence: true
 end
