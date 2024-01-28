@@ -8,7 +8,7 @@ class Technology < ApplicationRecord
   #
   # validations
   #
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   validates :description, presence: true
   validates :category_type, presence: true
 
