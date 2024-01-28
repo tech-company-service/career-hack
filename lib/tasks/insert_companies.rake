@@ -17,11 +17,9 @@ namespace :task do
         employees: row[6].to_i,
         recruit_url: row[7]
       )
-      binding.pry
       company.save!
     end
     rescue StandardError => e
-      binding.pry
       logger.error("大学の一括投入に失敗失敗しました\n#{e}")
   end
 end
