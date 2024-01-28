@@ -7,10 +7,10 @@ RSpec.describe Company, type: :model do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:description) }
     it { is_expected.to validate_presence_of(:address) }
-    it { is_expected.to validate_numericality_of(:average_salary).is_greater_than(0) }
-    it { is_expected.to validate_numericality_of(:initial_salary).is_greater_than(0) }
-    it { is_expected.to validate_numericality_of(:average_age).is_greater_than(0) }
-    it { is_expected.to validate_numericality_of(:employees).is_greater_than(0) }
+    it { is_expected.to validate_numericality_of(:average_salary).is_greater_than_or_equal_to(0) }
+    it { is_expected.to validate_numericality_of(:initial_salary).is_greater_than_or_equal_to(0) }
+    it { is_expected.to validate_numericality_of(:average_age).is_greater_than_or_equal_to(0) }
+    it { is_expected.to validate_numericality_of(:employees).is_greater_than_or_equal_to(0) }
   end
 
   describe "Associations" do

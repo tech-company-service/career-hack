@@ -21,10 +21,10 @@ class Company < ApplicationRecord
   validates :description, presence: true
   validates :address, presence: true
   validates :hash_id, presence: true, uniqueness: { case_sensitive: true }, length: { is: HASH_ID_LENGTH }, on: :update
-  validates :average_salary, numericality: { greater_than: 0 }
-  validates :initial_salary, numericality: { greater_than: 0 }
-  validates :average_age, numericality: { greater_than: 0 }
-  validates :employees, numericality: { greater_than: 0 }
+  validates :average_salary, numericality: { greater_than_or_equal_to: 0 }
+  validates :initial_salary, numericality: { greater_than_or_equal_to: 0 }
+  validates :average_age, numericality: { greater_than_or_equal_to: 0 }
+  validates :employees, numericality: { greater_than_or_equal_to: 0 }
   
   private
 
