@@ -9,7 +9,7 @@ class Api::V1::CompaniesController < Api::ApplicationController
   end
 
   def show
-    company = Company.find(params[:id])
+    company = Company.find_by(params[:hash_id])
     company.company_services if options.include?(:company_services)
     company.job_offers if options.include?(:job_offers)
     company.interns if options.include?(:interns)
