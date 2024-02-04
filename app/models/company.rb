@@ -13,6 +13,7 @@ class Company < ApplicationRecord
   has_many :job_offers, dependent: :destroy
   has_many :interns, dependent: :destroy
   has_many :company_benefits, dependent: :destroy
+  has_many :company_abouts, dependent: :destroy
 
   #
   # validations
