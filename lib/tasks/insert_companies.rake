@@ -3,10 +3,9 @@ require 'csv'
 namespace :task do
   desc '企業を一括投入する'
   task insert_companies: :environment do
-
     logger = Logger.new('log/insert_companies.log')
     CSV.foreach('lib/tasks/insert_companies.csv', headers: true) do |row|
-      row[2] = row[2].gsub(/\n/, '') if row[2].include?("\n")
+      row[2] = row[2].gsub("\n", '') if row[2].include?("\n")
       company = Company.new(
         name: row[0],
         description: row[1],
@@ -19,8 +18,7 @@ namespace :task do
       )
       company.save!
     end
-    rescue StandardError => e
-      logger.error("大学の一括投入に失敗失敗しました\n#{e}")
+  rescue StandardError => e
+    logger.error("大学の一括投入に失敗失敗しました\n#{e}")
   end
 end
-	
