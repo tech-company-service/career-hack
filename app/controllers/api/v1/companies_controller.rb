@@ -1,14 +1,10 @@
 class Api::V1::CompaniesController < Api::ApplicationController
-  def index
-    # 現状、redisへのキャッシュはできていない
-    # res_companies = Rails.cache.fetch("companies", expires_in: 1.day) do
-    #   companies = Company.all
-    #   ActiveModelSerializers::SerializableResource.new(companies, each_serializer: CompanySerializer).to_json
-    # end
-    # render json: res_companies
+  # 期限を設定
+  EXPIRATION_TIME = 86400 # 1日の秒数
 
-    companies = Company.all
-    render json: companies, each_serializer: CompanySerializer
+  def index
+    serialized_companies = fetch_companies
+    render json: serialized_companies
   end
 
   def show
@@ -33,5 +29,25 @@ class Api::V1::CompaniesController < Api::ApplicationController
     query = params[:query]
     compannies = Company.where('name LIKE ?', "%#{query}%")
     render json: compannies, each_serializer: CompanySerializer
+  end
+
+  private
+
+  def fetch_companies
+    # Rails.chache.fetchが使えないため、Redis.currentで代用
+    cached_data = Redis.current.get('companies')
+
+    return cached_data unless cached_data.nil?
+
+    # キャッシュにデータがない場合、データベースからデータを取得し、シリアライズしてRedisに保存
+    companies = Company.all
+    serialize_and_cache_companies(companies)
+  end
+
+  def serialize_and_cache_companies(companies)
+    serialized_companies = ActiveModelSerializers::SerializableResource.new(companies, each_serializer: CompanySerializer).to_json
+    Redis.current.set('companies', serialized_companies, ex: EXPIRATION_TIME)
+    
+    serialized_companies
   end
 end
