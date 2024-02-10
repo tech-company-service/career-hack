@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :articles, only: [:index]
-      resources :companies, only: [:index, :show] do
+      resources :companies, param: :hash_id, only: [:index, :show] do
+        resources :job_offers, only: [:index], module: :companies
         get :search, on: :collection
       end
       resources :interns, only: [:index]

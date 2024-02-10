@@ -22,7 +22,7 @@ class Api::V1::CompaniesController < Api::ApplicationController
     includes_array << { company_articles: [:article] } if options.include?('company_articles')
     includes_array << :interns if options.include?('interns')
   
-    company = Company.includes(includes_array).find_by(hash_id: params[:id])
+    company = Company.includes(includes_array).find_by(hash_id: params[:hash_id])
     
     return render json: { error: '企業が見つかりませんでした' }, status: :not_found if company.nil?
 
