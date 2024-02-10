@@ -7,4 +7,5 @@ class CompanySerializer < ApplicationSerializer
   has_many :interns, serializer: InternSerializer, if: -> { render?('interns') }
   has_many :company_benefits, serializer: CompanyBenefitSerializer, if: -> { render?('company_benefits') }
   has_many :company_abouts, serializer: CompanyAboutSerializer, if: -> { render?('company_abouts') }
+  has_many :company_projects, serializer: CompanyProjectSerializer
 end

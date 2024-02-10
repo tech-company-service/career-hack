@@ -15,6 +15,7 @@ class Api::V1::CompaniesController < Api::ApplicationController
     options = params[:options] || []
   
     includes_array = []
+    includes_array << :company_projects
     includes_array << :company_services if options.include?('company_services')
     includes_array << :company_benefits if options.include?('company_benefits')
     includes_array << :company_abouts if options.include?('company_abouts')
