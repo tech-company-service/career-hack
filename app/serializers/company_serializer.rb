@@ -1,5 +1,5 @@
 class CompanySerializer < ApplicationSerializer
-  attributes :id, :hash_id, :name, :description, :address, :average_salary, :initial_salary, :average_age, :employees, :recruit_url
+  attributes :id, :hash_id, :name, :description, :address, :average_salary, :initial_salary, :average_age, :employees, :recruit_url, :detailed_initial_salary
 
   has_many :articles, serializer: ArticleSerializer, if: -> { render?('company_articles') }
   has_many :company_services, serializer: CompanyServiceSerializer, if: -> { render?('company_services') }

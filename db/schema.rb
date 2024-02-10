@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_04_162046) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_08_143501) do
   create_table "articles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", null: false
     t.string "link", limit: 2083, null: false, collation: "utf8mb4_unicode_ci"
@@ -32,6 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_04_162046) do
     t.string "recruit_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "detailed_initial_salary"
   end
 
   create_table "company_abouts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
