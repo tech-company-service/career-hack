@@ -21,5 +21,6 @@ RSpec.describe Company, type: :model do
     it { should have_many(:interns).dependent(:destroy) }
     it { should have_many(:company_benefits).dependent(:destroy) }
     it { should have_many(:company_abouts).dependent(:destroy) }
+    it { should have_many(:company_projects).dependent(:destroy) }
   end
 end
