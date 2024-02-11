@@ -12,7 +12,7 @@ namespace :task do
     CSV.foreach('lib/tasks/company_projects.csv', headers: true) do |row|
       project = CompanyProject.new(
         company_id: company.id,
-        name: row[0],
+        name: row[0]
       )
       project.save!
     end
