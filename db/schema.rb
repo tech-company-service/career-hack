@@ -10,16 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_04_162046) do
-  create_table "articles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "title", null: false
-    t.string "link", limit: 2083, null: false, collation: "utf8mb4_unicode_ci"
-    t.text "description"
-    t.datetime "published_at", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+ActiveRecord::Schema[7.0].define(version: 2024_02_12_061824) do
   create_table "companies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "hash_id", limit: 15, collation: "utf8mb4_bin"
@@ -32,6 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_04_162046) do
     t.string "recruit_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "detailed_initial_salary"
   end
 
   create_table "company_abouts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -45,8 +37,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_04_162046) do
 
   create_table "company_articles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "company_id", null: false
-    t.bigint "article_id", null: false
-    t.index ["article_id"], name: "index_company_articles_on_article_id"
+    t.string "title", null: false
+    t.text "description"
+    t.string "url"
+    t.string "ogp_image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_company_articles_on_company_id"
   end
 
@@ -57,6 +53,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_04_162046) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_company_benefits_on_company_id"
+  end
+
+  create_table "company_projects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_company_projects_on_company_id"
   end
 
   create_table "company_services", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -120,9 +124,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_04_162046) do
   end
 
   add_foreign_key "company_abouts", "companies"
-  add_foreign_key "company_articles", "articles"
   add_foreign_key "company_articles", "companies"
   add_foreign_key "company_benefits", "companies"
+  add_foreign_key "company_projects", "companies"
   add_foreign_key "interns", "companies"
   add_foreign_key "job_offer_technologies", "job_offers"
   add_foreign_key "job_offer_technologies", "technologies"

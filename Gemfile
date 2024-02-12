@@ -6,6 +6,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem "rails", "~> 7.0.8"
 gem "mysql2", "~> 0.5"
 gem "puma", "~> 5.0"
+gem "config"
 
 # gem "jbuilder"
 gem "redis", "~> 4.0"
@@ -23,6 +24,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem "hashid-rails", "~> 1.0"
+  gem 'metainspector'
   gem 'pry'
   gem 'pry-byebug'
   gem 'rspec-rails'

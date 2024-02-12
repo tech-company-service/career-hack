@@ -16,10 +16,10 @@ RSpec.describe Company, type: :model do
   describe "Associations" do
     it { should have_many(:job_offers) }
     it { should have_many(:company_services) }
-    it { should have_many(:company_articles) }
-    it { should have_many(:articles).through(:company_articles) }
+    it { should have_many(:company_articles).dependent(:destroy) }
     it { should have_many(:interns).dependent(:destroy) }
     it { should have_many(:company_benefits).dependent(:destroy) }
     it { should have_many(:company_abouts).dependent(:destroy) }
+    it { should have_many(:company_projects).dependent(:destroy) }
   end
 end
