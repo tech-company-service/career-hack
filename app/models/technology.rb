@@ -2,7 +2,7 @@ class Technology < ApplicationRecord
   #
   # Associations
   #
-  has_many :job_offer_technologies
+  has_many :job_offer_technologies, dependent: :destroy
   has_many :job_offers, through: :job_offer_technologies
 
   #

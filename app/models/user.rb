@@ -4,8 +4,8 @@ class User < ApplicationRecord
   private
 
   def unique_email_across_providers
-    if User.where.not(provider: self.provider).exists?(email: self.email)
-      errors.add(:email, 'は別のプロバイダで既に使用されています')
-    end
+    return unless User.where.not(provider:).exists?(email:)
+
+    errors.add(:email, 'は別のプロバイダで既に使用されています')
   end
 end

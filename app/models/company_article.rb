@@ -1,6 +1,4 @@
-
 class CompanyArticle < ApplicationRecord
-
   #
   # callbacks
   #
@@ -20,6 +18,6 @@ class CompanyArticle < ApplicationRecord
   private
 
   def fetch_ogp_image_url
-    self.ogp_image_url = OgpFetcher.fetch(self.url)
+    self.ogp_image_url = OgpFetcher.fetch(url)
   end
 end

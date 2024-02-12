@@ -7,7 +7,7 @@ class Company < ApplicationRecord
   after_create :set_hash_id
 
   # Associations
-  has_many :company_services
+  has_many :company_services, dependent: :destroy
   has_many :company_articles, dependent: :destroy
   has_many :job_offers, dependent: :destroy
   has_many :interns, dependent: :destroy
