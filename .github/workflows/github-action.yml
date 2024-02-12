@@ -1,4 +1,4 @@
-name: Run rspec, rubocop
+name: lint-and-test
 
 on:
   push:
