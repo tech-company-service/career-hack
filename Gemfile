@@ -23,6 +23,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem "hashid-rails", "~> 1.0"
+  gem 'metainspector'
   gem 'pry'
   gem 'pry-byebug'
   gem 'rspec-rails'

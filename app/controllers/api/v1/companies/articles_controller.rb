@@ -1,10 +1,10 @@
-class Api::V1::Companies::JobOffersController < Api::ApplicationController
+class Api::V1::Companies::ArticlesController < Api::ApplicationController
   before_action :set_company, only: [:index]
 
   def index
     # TODO: redis対応を必ずする
-    job_offers = @company.job_offers
-    render json: job_offers, each_serializer: JobOfferSerializer
+    articles = @company.company_articles
+    render json: articles, each_serializer: CompanyArticleSerializer
   end
 
   private

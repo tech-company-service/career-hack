@@ -19,6 +19,6 @@ namespace :task do
       company.save!
     end
   rescue StandardError => e
-    logger.error("大学の一括投入に失敗失敗しました\n#{e}")
+    logger.error("企業の一括投入に失敗失敗しました\n#{e}")
   end
 end
