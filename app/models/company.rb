@@ -8,8 +8,7 @@ class Company < ApplicationRecord
 
   # Associations
   has_many :company_services
-  has_many :company_articles
-  has_many :articles, through: :company_articles
+  has_many :company_articles, dependent: :destroy
   has_many :job_offers, dependent: :destroy
   has_many :interns, dependent: :destroy
   has_many :company_benefits, dependent: :destroy

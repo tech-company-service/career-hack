@@ -18,9 +18,9 @@ class Api::V1::CompaniesController < Api::ApplicationController
     includes_array << :company_projects
     includes_array << :company_services if options.include?('company_services')
     includes_array << :company_benefits if options.include?('company_benefits')
+    includes_array << :company_articles if options.include?('company_articles')
     includes_array << :company_abouts if options.include?('company_abouts')
     includes_array << { job_offers: [job_offer_technologies: [:technology]] } if options.include?('job_offers')
-    includes_array << { company_articles: [:article] } if options.include?('company_articles')
     includes_array << :interns if options.include?('interns')
   
     company = Company.includes(includes_array).find_by(hash_id: params[:hash_id])
