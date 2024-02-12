@@ -12,7 +12,8 @@ namespace :task do
       service = CompanyService.new(
         company_id: company.id,
         name: row[0],
-        description: row[1]
+        description: row[1],
+        launched_at: '20001231'
       )
       service.save!
     end
