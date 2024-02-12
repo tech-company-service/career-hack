@@ -1,6 +1,7 @@
 class Api::V1::CompaniesController < Api::ApplicationController
   # 期限を設定
-  EXPIRATION_TIME = 86_400 # 1日の秒数
+  # 1日の秒数
+  EXPIRATION_TIME = 86_400
 
   def index
     serialized_companies = fetch_companies
