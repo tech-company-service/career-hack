@@ -3,4 +3,4 @@
 set -o errexit
 
 bundle install
-bundle exec rake db:migrate
+bundle exec RAILS_ENV=production rails db:migrate
