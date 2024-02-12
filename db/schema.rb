@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_12_061824) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_12_151622) do
   create_table "companies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "hash_id", limit: 15, collation: "utf8mb4_bin"
@@ -67,7 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_12_061824) do
     t.integer "company_id"
     t.string "name", null: false
     t.text "description", null: false
-    t.datetime "launched_at"
+    t.string "launched_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -107,7 +107,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_12_061824) do
 
   create_table "technologies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
-    t.text "description", null: false
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_type", null: false
@@ -121,6 +121,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_12_061824) do
     t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "company_abouts", "companies"
