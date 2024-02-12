@@ -1,6 +1,3 @@
-namespace :insert_company_projects do
-end
-
 require 'csv'
 
 namespace :task do

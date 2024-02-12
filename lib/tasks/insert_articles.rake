@@ -21,20 +21,19 @@ namespace :task do
   end
 end
 
+def fetch(url)
+  return if url.blank?
 
-  def fetch(url)
-    return unless url.present?
-    page = MetaInspector.new(url)
-    title = page.title
-    description = page.description
-    url = page.url
-    image_url = page.meta['og:image']
+  page = MetaInspector.new(url)
+  title = page.title
+  description = page.description
+  url = page.url
+  image_url = page.meta['og:image']
 
-    { title: title,
-      description: description,
-      url: url,
-      image_url: image_url,
-    }
-  rescue StandardError => e
-    return e.message
-  end
+  { title:,
+    description:,
+    url:,
+    image_url: }
+rescue StandardError => e
+  e.message
+end
