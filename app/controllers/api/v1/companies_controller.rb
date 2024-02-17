@@ -10,17 +10,8 @@ class Api::V1::CompaniesController < Api::ApplicationController
 
   def show
     options = params[:options] || []
-  
-    includes_array = []
-    includes_array << :company_projects
-    includes_array << :company_services if options.include?('company_services')
-    includes_array << :company_benefits if options.include?('company_benefits')
-    includes_array << :company_articles if options.include?('company_articles')
-    includes_array << :company_abouts if options.include?('company_abouts')
-    includes_array << { job_offers: [job_offer_technologies: [:technology]] } if options.include?('job_offers')
-    includes_array << :interns if options.include?('interns')
-  
-    company = Company.includes(includes_array).find_by(hash_id: params[:hash_id])
+    options_array = build_options_array(options)
+    company = Company.includes(options_array).find_by(hash_id: params[:hash_id])
     
     return render json: { error: '企業が見つかりませんでした' }, status: :not_found if company.nil?
 
@@ -34,6 +25,19 @@ class Api::V1::CompaniesController < Api::ApplicationController
   end
 
   private
+
+  def build_options_array(options)
+    options.each_with_object([:company_projects]) do |option, array|
+      case option
+      when 'company_services' then array << :company_services
+      when 'company_benefits' then array << :company_benefits
+      when 'company_articles' then array << :company_articles
+      when 'company_abouts' then array << :company_abouts
+      when 'job_offers' then array << { job_offers: [job_offer_technologies: [:technology]] }
+      when 'interns' then array << :interns
+      end
+    end
+  end
 
   def fetch_companies
     # Rails.chache.fetchが使えないため、Redis.currentで代用
