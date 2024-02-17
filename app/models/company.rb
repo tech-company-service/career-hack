@@ -1,5 +1,6 @@
 class Company < ApplicationRecord
   include Hashid::Rails
+  mount_uploader :avatar, AvatarUploader
 
   #
   # callbacks
