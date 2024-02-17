@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :intern do
-    association :company
+    company
     title { "サイバーエージェントの夏インターン" }
     description { "サイバーエージェントでの夏のインターンシップ。プログラミングスキルを活かして、実際のプロジェクトに取り組む絶好の機会です。" }
     link { "https://example.com/internship" }
