@@ -23,12 +23,11 @@ namespace :task do
         ogp_image_url: article_info[:image_url]
       )
       c_article.save!
-      rescue StandardError => e
-        logger.error("記事の一括投入に失敗しました: #{e.message}\n行: #{row}")
+    rescue StandardError => e
+      logger.error("記事の一括投入に失敗しました: #{e.message}\n行: #{row}")
     end
   end
 end
-
 
 def fetch(url)
   return if url.blank?

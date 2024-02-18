@@ -7,7 +7,7 @@ namespace :task do
 
     CSV.foreach('lib/tasks/company_projects.csv', headers: true) do |row|
       company_name = row[0]
-      company = Company.find_by(name: company_name) unless company_name.blank?
+      company = Company.find_by(name: company_name) if company_name.present?
 
       if company.nil?
         logger.error("企業が見つかりません: #{company_name}")
@@ -15,7 +15,7 @@ namespace :task do
       end
       project = CompanyProject.new(
         company_id: company.id,
-        name: row[1],
+        name: row[1]
       )
       project.save!
     end
