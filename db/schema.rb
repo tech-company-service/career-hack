@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_12_151622) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_17_163501) do
   create_table "companies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "hash_id", limit: 15, collation: "utf8mb4_bin"
@@ -24,6 +24,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_12_151622) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "detailed_initial_salary"
+    t.string "avatar"
+    t.boolean "is_logo_mail_approved", default: false, null: false
   end
 
   create_table "company_abouts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
