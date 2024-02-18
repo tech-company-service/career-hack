@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_17_163501) do
     t.datetime "updated_at", null: false
     t.text "detailed_initial_salary"
     t.string "avatar"
-    t.boolean "is_logo_mail_approved"
+    t.boolean "is_logo_mail_approved", default: false, null: false
   end
 
   create_table "company_abouts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

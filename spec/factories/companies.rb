@@ -9,5 +9,7 @@ FactoryBot.define do
     employees { 50 }
     recruit_url { "https://www.example.com/recruit" }
     hash_id { SecureRandom.alphanumeric(15) }
+    avatar { '/file_path/test/test.img' }
+    is_logo_mail_approved { false }
   end
 end
