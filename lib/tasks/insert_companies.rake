@@ -11,10 +11,10 @@ namespace :task do
         address: row[2],
         average_salary: row[3].to_i,
         initial_salary: row[4].to_i,
-        detailed_initial_salary: row[5].to_i,
+        detailed_initial_salary: row[5],
         average_age: row[6].to_i,
-        employees: row[6].to_i,
-        recruit_url: row[7]
+        employees: row[7].to_i,
+        recruit_url: row[8]
       )
       company.save!
     end
