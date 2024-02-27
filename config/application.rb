@@ -28,5 +28,7 @@ module Myapp
     config.middleware.use ActionDispatch::Flash
     config.middleware.use Rack::MethodOverride
     config.middleware.use ActionDispatch::Session::CookieStore, {:key=>"_myapp_session"}
+
+    config.i18n.default_locale = :ja
   end
 end
