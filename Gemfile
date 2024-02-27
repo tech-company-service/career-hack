@@ -12,7 +12,6 @@ gem 'rails_admin-i18n'
 gem 'devise'
 gem 'rails-i18n'
 
-
 # gem "jbuilder"
 gem "redis", "~> 4.0"
 # gem "kredis"

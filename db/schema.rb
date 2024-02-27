@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_26_141334) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_27_161608) do
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -38,6 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_26_141334) do
     t.text "detailed_initial_salary"
     t.string "avatar"
     t.boolean "is_logo_mail_approved", default: false, null: false
+    t.index ["hash_id"], name: "index_companies_on_hash_id", unique: true
   end
 
   create_table "company_abouts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

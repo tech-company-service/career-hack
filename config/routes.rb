@@ -1,13 +1,4 @@
 Rails.application.routes.draw do
-  # devise_scope :admins do
-  #   root to: 'admins/registrations#new'
-  #   get '/register', to: 'admins/registrations#new'
-  #   post '/register', to: 'admins/registrations#create'
-    
-  #   get '/login', to: 'admins/sessions#new'
-  #   post '/login', to: 'admins/sessions#create'
-  #   delete '/logout', to: 'admins/sessions#destroy'
-  # end
   devise_for :admins, controllers: { sessions: 'admins/sessions', registrations: 'admins/registrations', confirmations: 'admins/confirmations', unlocks: 'admins/unlocks' }
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

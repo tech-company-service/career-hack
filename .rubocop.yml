@@ -29,11 +29,6 @@ Rails/UnknownEnv:
     - staging
     - production
 
-# このルールはenableにするとreviewdogがエラーで落ちる。
-Rails/UniqueValidationWithoutIndex:
-  Exclude:
-    - 'app/models/**/*.rb'
-
 #
 # Naming
 #
