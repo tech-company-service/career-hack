@@ -1,4 +1,3 @@
-# 日本語化テンプレ
 ja:
   activerecord:
     models:
@@ -11,15 +10,6 @@ ja:
       company_service: 企業の運営サービス
       company: 企業
       intern: インターン
-        recruitment_type:
-          summer_intern: '夏季インターン'
-          winter_intern: '冬季インターン'
-          all_season: '通年インターン'
-          others: 'その他'
-        style_type:
-          on_line: 'オンライン'
-          off_line: 'オフライン'
-          hybrid: 'ハイブリッド'
       job_offer: 募集職種
       technology: 技術情報
       job_offer_technology: 募集職種の技術情報
@@ -75,6 +65,18 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+  enums:
+    intern:
+      recruitment_type:
+        summer_intern: 夏季インターン
+        winter_intern: 冬季インターン
+        all_season: 通年インターン
+        others: その他
+      style_type:
+        on_line: オンライン
+        off_line: オフライン
+        hybrid: ハイブリッド
+
   date:
     abbr_day_names:
     - 日

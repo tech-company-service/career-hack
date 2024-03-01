@@ -66,7 +66,6 @@ RSpec.describe 'Api::V1::CompaniesController', type: :request do
       it '企業と関連するjsonデータが取得できること' do
         subject
         json_response = response.parsed_body
-
         expect(json_response['id']).to eq(company.id)
         expect(json_response['hash_id']).to eq(company.hash_id)
         expect(json_response['name']).to eq(company.name)
@@ -100,14 +99,14 @@ RSpec.describe 'Api::V1::CompaniesController', type: :request do
         expect(json_response['job_offers'][0]['description']).to eq(job_offer.description)
 
         # interns
-        expect(json_response['interns'][0]['id']).to eq(intern.id)
+        expect(json_response['interns'][0]['intern_id']).to eq(intern.id)
         expect(json_response['interns'][0]['title']).to eq(intern.title)
         expect(json_response['interns'][0]['description']).to eq(intern.description)
         expect(json_response['interns'][0]['link']).to eq(intern.link)
         # entry_deadline_date, started_at, ended_at, periodは、精度を合わせないといけないため保留
         expect(json_response['interns'][0]['site']).to eq(intern.site)
-        expect(json_response['interns'][0]['style_type']).to eq(intern.style_type)
-        expect(json_response['interns'][0]['recruitment_type']).to eq(intern.recruitment_type)
+        expect(json_response['interns'][0]['style_type']).to eq(I18n.t("enums.intern.style_type.#{intern.style_type}"))
+        expect(json_response['interns'][0]['recruitment_type']).to eq(I18n.t("enums.intern.recruitment_type.#{intern.recruitment_type}"))
       end
     end
 

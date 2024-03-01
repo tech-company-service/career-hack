@@ -4,11 +4,11 @@ class InternSerializer < ApplicationSerializer
   belongs_to :company, serializer: CompanySerializer
 
   def recruitment_type
-    I18n.t("activerecord.attributes.intern.recruitment_types.#{object.recruitment_type}")
+    I18n.t("enums.intern.recruitment_type.#{object.recruitment_type}")
   end
 
   def style_type
-    I18n.t("activerecord.attributes.intern.style_types.#{object.style_type}")
+    I18n.t("enums.intern.style_type.#{object.style_type}")
   end
 
   def intern_id
