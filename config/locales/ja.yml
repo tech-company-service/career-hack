@@ -11,6 +11,15 @@ ja:
       company_service: 企業の運営サービス
       company: 企業
       intern: インターン
+        recruitment_types:
+          summer_intern: '夏季インターン'
+          winter_intern: '冬季インターン'
+          all_season: '通年インターン'
+          others: 'その他'
+        style_types:
+          on_line: 'オンライン'
+          off_line: 'オフライン'
+          hybrid: 'ハイブリッド'
       job_offer: 募集職種
       technology: 技術情報
       job_offer_technology: 募集職種の技術情報
