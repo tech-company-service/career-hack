@@ -11,12 +11,12 @@ ja:
       company_service: 企業の運営サービス
       company: 企業
       intern: インターン
-        recruitment_types:
+        recruitment_type:
           summer_intern: '夏季インターン'
           winter_intern: '冬季インターン'
           all_season: '通年インターン'
           others: 'その他'
-        style_types:
+        style_type:
           on_line: 'オンライン'
           off_line: 'オフライン'
           hybrid: 'ハイブリッド'
