@@ -7,6 +7,10 @@ gem "rails", "~> 7.0.8"
 gem "mysql2", "~> 0.5"
 gem "puma", "~> 5.0"
 gem "config"
+gem 'rails_admin', '~> 3.1.2'
+gem 'rails_admin-i18n'
+gem 'devise'
+gem 'rails-i18n'
 
 # gem "jbuilder"
 gem "redis", "~> 4.0"
@@ -42,3 +46,4 @@ group :development do
   # gem "spring"
 end
 
+gem "sassc-rails"
