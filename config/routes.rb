@@ -9,6 +9,7 @@ Rails.application.routes.draw do
         resources :articles, only: [:index], module: :companies
         resources :interns, only: [:index, :show], module: :companies
         resources :job_offers, only: [:index], module: :companies
+        resources :benefits, only: [:index], module: :companies
         get :search, on: :collection
       end
       resources :interns, only: [:index]
