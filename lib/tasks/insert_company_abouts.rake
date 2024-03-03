@@ -4,7 +4,7 @@ namespace :task do
   desc '「企業について」を一括投入する'
   task insert_company_abouts: :environment do
     logger = Logger.new('log/insert_company_abouts.log')
-    
+
     CSV.foreach('lib/tasks/company_abouts.csv', headers: true) do |row|
       company_name = row[0]
       company = Company.find_by(name: company_name)
