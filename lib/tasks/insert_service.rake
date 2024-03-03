@@ -16,7 +16,8 @@ namespace :task do
         company_id: company.id,
         name: row[1],
         description: row[2],
-        launched_at: row[3]
+        launched_at: row[3],
+        url: row[4]
       )
       service.save!
     end
