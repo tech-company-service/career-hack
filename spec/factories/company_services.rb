@@ -4,5 +4,6 @@ FactoryBot.define do
     name { "ABEMA" }
     description { "testtest" }
     launched_at { "2020-01-01" }
+    url { "https://example.com" }
   end
 end
