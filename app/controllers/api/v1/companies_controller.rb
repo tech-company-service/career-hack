@@ -46,7 +46,7 @@ class Api::V1::CompaniesController < Api::ApplicationController
 
     return cached_data unless cached_data.nil?
 
-    companies = Company.all
+    companies = Company.includes(:company_projects).all
     serialize_companies(companies)
   end
 
