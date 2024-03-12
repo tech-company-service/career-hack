@@ -20,6 +20,8 @@ class Api::V1::CompaniesController < Api::ApplicationController
 
   def search
     query = params[:query]
+    return if query.blank?
+
     compannies = Company.where('name LIKE ?', "%#{query}%")
     render json: compannies, each_serializer: CompanySerializer
   end
@@ -33,7 +35,8 @@ class Api::V1::CompaniesController < Api::ApplicationController
       when 'company_benefits' then array << :company_benefits
       when 'company_articles' then array << :company_articles
       when 'company_abouts' then array << :company_abouts
-      when 'job_offers' then array << { job_offers: [job_offer_technologies: [:technology]] }
+      # when 'job_offers' then array << { job_offers: [job_offer_technologies: [:technology]] }
+      when 'job_offers' then array << :job_offers
       when 'interns' then array << :interns
       end
     end
