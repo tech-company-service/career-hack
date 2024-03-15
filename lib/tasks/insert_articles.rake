@@ -4,9 +4,17 @@ namespace :task do
   desc '記事を一括投入する'
   task insert_articles: :environment do
     logger = Logger.new('log/insert_articles.log')
-    company = Company.first
+
     CSV.foreach('lib/tasks/articles.csv', headers: true) do |row|
-      article_info = fetch(row[0])
+      company_name = row[0]
+      company = Company.find_by(name: company_name)
+
+      if company.nil?
+        logger.error("企業が見つかりません: #{company_name}")
+        next
+      end
+
+      article_info = fetch(row[1])
       c_article = CompanyArticle.new(
         company_id: company.id,
         title: article_info[:title],
@@ -15,9 +23,9 @@ namespace :task do
         ogp_image_url: article_info[:image_url]
       )
       c_article.save!
+    rescue StandardError => e
+      logger.error("記事の一括投入に失敗しました: #{e.message}\n行: #{row}")
     end
-  rescue StandardError => e
-    logger.error("記事の一括投入に失敗失敗しました\n#{e}")
   end
 end
 

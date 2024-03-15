@@ -4,16 +4,20 @@ namespace :task do
   desc 'サービスを一括投入する'
   task insert_services: :environment do
     logger = Logger.new('log/insert_service.log')
-    company = Company.first
 
     CSV.foreach('lib/tasks/company_service.csv', headers: true) do |row|
-      # row[2] = row[2].gsub(/\n/, '') if row[2].include?("\n")
-
+      company_name = row[0]
+      company = Company.find_by(name: company_name)
+      if company.nil?
+        logger.error("企業が見つかりません: #{company_name}")
+        next
+      end
       service = CompanyService.new(
         company_id: company.id,
-        name: row[0],
-        description: row[1],
-        launched_at: '20001231'
+        name: row[1],
+        description: row[2],
+        launched_at: row[3],
+        url: row[4]
       )
       service.save!
     end
