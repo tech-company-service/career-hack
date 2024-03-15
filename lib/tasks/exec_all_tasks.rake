@@ -9,7 +9,5 @@ namespace :task do
     Rake::Task['task:insert_job_offers'].invoke
     Rake::Task['task:insert_services'].invoke
     Rake::Task['task:insert_technologies'].invoke
-    Rake::Task['task:update_company'].invoke
-    Rake::Task['task:update_company'].invoke
   end
 end
