@@ -117,10 +117,10 @@ CARTA HOLDINGS,マンガペディア,マンガに関する『事典』のデー�
 CARTA HOLDINGS,C-POT,小学館とCARTA HOLDINGSとの合弁会社としてC-POTを設立。C-POTでは、小学館のコンテンツとその権利、コンテンツの作成ノウハウ、またVOYAGE GROUPのシステム開発力やマネタイズ、サービス企画力を活かし運営。,,https://c-pot.co.jp/#about
 CARTA HOLDINGS,IMATABI,初心者にも役立つ旅行に関する基本情報から、人気の観光地・穴場の観光地、さらにはひとり旅や世界一周まで、IMATABI（イマタビ）は”旅”をテーマにさまざまな情報を発信する学生向け旅プラットフォーム,,https://imatabi.jp/
 CARTA HOLDINGS,オカネノホンネ,オンラインでファイナンシャルプランナー(FP)への相談が無料でできるサービス,,https://okanenohonne.com/
-sansan,Sansan,100万件以上の企業情報をあらかじめ搭載し、あらゆる顧客情報の営業活用を実現する、名刺管理を超えた営業DXサービス,,https://jp.sansan.com/
-sansan,Bill One,あらゆる請求書をオンラインで受け取り、企業全体の請求書業務を加速するインボイス管理サービス,,https://bill-one.com/
-sansan,Contract One,あらゆる契約書を正確にデータ化し、全社で契約情報を活用できるようにするこれまでにない契約データベース,,https://contract-one.com/
-sansan,Eight,"価値ある出会いをタッチでつなぐ、ビジネスのための名刺アプリ。
+Sansan,Sansan,100万件以上の企業情報をあらかじめ搭載し、あらゆる顧客情報の営業活用を実現する、名刺管理を超えた営業DXサービス,,https://jp.sansan.com/
+Sansan,Bill One,あらゆる請求書をオンラインで受け取り、企業全体の請求書業務を加速するインボイス管理サービス,,https://bill-one.com/
+Sansan,Contract One,あらゆる契約書を正確にデータ化し、全社で契約情報を活用できるようにするこれまでにない契約データベース,,https://contract-one.com/
+Sansan,Eight,"価値ある出会いをタッチでつなぐ、ビジネスのための名刺アプリ。
 つながった相手の異動・転職などの情報が自動で更新され、近況をスマートに把握できる",,https://8card.net/
 ZOZO,ZOZOTOWN,"ファッションEC。
 1,600以上のショップ、9,000以上のブランドを取り扱う。常時95万点以上の商品数と毎日平均2,900点以上の新着商品を掲載。（2023年12月末時点）
@@ -240,3 +240,48 @@ DMM,DMM FX,FX取引(店頭外国為替証拠金取引)を行えるサービス,,
 DMM,DMM WEBCAMP,教育事業、人材関連事業,,https://web-camp.io/
 DMM,DMM music,音楽レーベル/アーティストマネジメント事業,201803,https://pictures.dmm.com/music/
 DMM,DMM競輪,競輪車券・競輪くじの販売サイト運営,,https://keirin.dmm.com/
+GMOインターネットグループ,お名前.com,"登録実績3,000万件を誇る国内最大級のドメイン公式登録サービスです。.com .net .jpドメインなど、580種類以上のドメイン取得が可能で、ドメインを活用できるサービスもご用意しています。",,https://www.onamae.com/
+GMOインターネットグループ,ConoHa byGMO,ブログやHP作成に最適な国内最速レンタルサーバー『ConoHa WING』をはじめ、よりサーバーを自由にカスタマイズ・構築することが可能で最新のGPUサーバーも利用できる『ConoHa VPS』、初心者でもかんたんにマルチプレイが始められる、ゲームユーザー向けの『ConoHa for GAME』など、お客様のご利用目的に応じて最適なサービスをお選びいただけるホスティングサービス,,https://www.conoha.jp/
+GMOインターネットグループ,GMOとくとくBB,ドコモ光やGMO光アクセスなどの光回線や、WiMAXなどのモバイル回線サービスをより多くの方に満足いただけるように、どこよりもおトクに提供しているプロバイダーサービス,,https://gmobb.jp/
+マネーフォワード,マネーフォワード クラウド会計,面倒な法人決算をラクにするクラウド型会計ソフト,,https://biz.moneyforward.com/accounting/
+マネーフォワード,マネーフォワード クラウド会計Plus,内部統制機能を備えた、中堅企業・上場企業向けクラウド型会計ソフト。,,https://biz.moneyforward.com/accounting_plus
+マネーフォワード,マネーフォワード クラウド確定申告,確定申告作業をラクにする、個人事業主のためのクラウド型確定申告ソフト。,,https://biz.moneyforward.com/accounting_plus
+マネーフォワード,マネーフォワード クラウド,請求書の作成・送付・受取がまとめて管理できる請求書作成ソフト。,,https://biz.moneyforward.com/invoice
+マネーフォワード,マネーフォワード クラウド請求書Plus,請求書や見積書の発行業務を効率化する請求書管理サービス。,,https://biz.moneyforward.com/receivable
+マネーフォワード,マネーフォワード クラウド債権管理,入金消込を自動化し、債権管理業務を効率化する入金消込・債権管理システム。,,https://biz.moneyforward.com/receivable-management
+マネーフォワード,マネーフォワード クラウド経費,面倒な経費精算業務を効率化するクラウド型経費精算システム。,,https://biz.moneyforward.com/expense
+マネーフォワード,マネーフォワード クラウド債務支払,支払請求書管理業務を効率化するクラウド型債務管理システム。,,https://biz.moneyforward.com/payable
+マネーフォワード,マネーフォワード クラウドインボイス,中堅・エンタープライズ企業向けの請求書受領・送付システム。,,https://biz.moneyforward.com/cloud-invoice/
+マネーフォワード,マネーフォワード 固定資産,内部統制にも対応したクラウド型固定資産管理システム。,,https://biz.moneyforward.com/fixed-assets
+マネーフォワード,マネーフォワード クラウド個別原価,工数入力、個別原価計算、プロジェクト原価の可視化をラクにするクラウド型個別原価管理システム。,,https://biz.moneyforward.com/project-cost
+マネーフォワード,マネーフォワード クラウド連結会計,グループ各社のデータ収集を効率化し、経営状況をリアルタイムに可視化する連結会計システム。,,https://biz.moneyforward.com/consolidated-accounting
+マネーフォワード,マネーフォワード クラウドBox,電子帳簿保存法の要件を満たして、取引関係書類を電子保存するストレージサービス。,,https://biz.moneyforward.com/box
+マネーフォワード,ネーフォワード クラウド人事管理,入退社手続き・従業員管理・組織管理を効率化するクラウド型人事管理システム。,,https://biz.moneyforward.com/employee
+マネーフォワード,マネーフォワード クラウド勤怠,従業員の勤怠状況を確認・集計・分析できるクラウド型勤怠管理システム。,,https://biz.moneyforward.com/attendance/
+マネーフォワード,マネーフォワード クラウド給与,面倒な給与計算業務を効率化できるクラウド型給与計算ソフト。,,https://biz.moneyforward.com/payroll
+マネーフォワード,マネーフォワード クラウド年末調整,書類配布から入力・回収・提出をWeb上で完結できるクラウド型年末調整ソフト。,,https://biz.moneyforward.com/tax-adjustment
+マネーフォワード,マネーフォワード クラウド社会保険,社会保険手続きに関する業務を効率化するクラウド型社会保険手続きソフト。,,https://biz.moneyforward.com/social_insurance
+マネーフォワード,マネーフォワード クラウドマイナンバー,法人・個人事業主向けのマイナンバー管理システム。,,https://biz.moneyforward.com/mynumber
+マネーフォワード,マネーフォワード クラウド契約,契約管理業務を効率化できる電子契約サービス。,,https://biz.moneyforward.com/contract
+マネーフォワード,マネーフォワード クラウド会社設立,会社設立に必要な書類を無料で簡単に作成できるサービス。,,https://biz.moneyforward.com/establish
+マネーフォワード,マネーフォワード クラウド開業届,開業手続きに必要な書類を無料で簡単に作成できる個人事業主の開業支援サービス。,,https://biz.moneyforward.com/starting-business
+マネーフォワード,マネーフォワード ビジネスカード,SaaS基盤を活用したFintechサービス。事業用プリペイドカード『マネーフォワード ビジネスカード』を提供。,,https://biz.moneyforward.com/biz-pay
+マネーフォワード,STREAMED,領収書や通帳など紙の証憑をスキャンするだけで、仕訳データ化する紙証憑の自動記帳サービス。,,https://streamedup.com/
+マネーフォワード,Manageboard,クラウド上で簡単に予算策定や予実分析ができる予算管理システム。,,https://service.manageboard.jp/
+マネーフォワード,R&AC,導入企業数No.1の入金消込・債権管理特化型クラウドシステム。,,https://www.r-ac.co.jp/
+マネーフォワード,Admina,“SaaSの家計簿”のようにSaaSの一元管理を可能にするSaaS管理プラットフォーム。,,https://admina.moneyforward.com/jp
+マネーフォワード,マネーフォワード キャリア,会計事務所のネットワークと専門知識、個性・関係性の科学的な理論を用いた会計業界特化の人材紹介サービス。,,https://cpta-hub.biz.moneyforward.com/career
+マネーフォワード,BOXIL SaaS,法人向けクラウドサービスを無料で比較し、まとめて資料請求できるSaaS比較サイト。,,https://boxil.jp/
+マネーフォワード,BOXIL EXPO,SaaSを中心としたサービスとの最適な出会いを実現するオンライン展示会。,,https://expo.boxil.jp/
+マネーフォワード,BALES,営業の効率化と生産性向上で売上の最大化を支援する、インサイドセールスアウトソーシング。,,https://bales.smartcamp.co.jp/
+マネーフォワード,BALES CLOUD],インサイドセールス業務を標準化、自動化するセールスエンゲージメントツール。,,https://balescloud.jp/
+マネーフォワード,アドシル,SaaS領域のマーケティング戦略立案から運用、実行支援、データ分析までを行うデジタルエージェンシー。,,https://smartcamp.co.jp/adxl
+マネーフォワード,BizHint,経営者、決裁者が抱える事業課題を解決する クラウド活用と生産性向上の専門サイト。,,https://bizhint.jp/
+マネーフォワード,マネーフォワード ケッサイ,取引先の与信審査から請求書発行、代金回収までの決済業務を一括して代行する企業間後払い決済サービス。,,https://mfkessai.co.jp/kessai/top
+マネーフォワード,マネーフォワード トランザクションファイナンス for Startups,スタートアップ向けの補完的な資金調達の選択肢で、売掛債権を早期に資金化できるサービス。,,https://mfkessai.co.jp/startup/top
+マネーフォワード,マネーフォワード 請求書カード払い for Startups,請求書のカード払いを実現し、資金繰り改善・支払い業務の効率化をサポートするサービス。,,https://mfkessai.co.jp/invoice-card-pay/top
+マネーフォワード,マネーフォワード アーリーペイメント,事業成長を支える新しい資金調達の選択肢で、売掛金を早期に資金化できるファクタリングサービス。,,https://mfkessai.co.jp/ep/top
+マネーフォワード,SHIKIN+ [資金プラス],売掛金の早期資金化を実現する、中小企業向けのオンライン型ファクタリングサービス。,,https://bizforward.co.jp/shikinplus/top
+マネーフォワード,SEIKYU+,与信や請求業務を代行し、売掛金の入金保証まで行うクラウド型BtoB請求代行サービス。,,https://bizforward.co.jp/seikyuplus/top
+マネーフォワード,ビズフォワード 請求書カード払い,請求書のカード払いを実現し、資金繰り改善・支払い業務の効率化をサポートするサービス。,,https://bizforward.co.jp/invoice-card-pay/top
+マネーフォワード,HIRAC FUND,テクノロジーによる社会課題解決を目指すスタートアップを支援するアントレプレナーファンド。,,https://www.hirac.co.jp/
