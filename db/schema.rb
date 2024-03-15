@@ -11,7 +11,10 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2024_03_03_051231) do
-  create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -23,9 +26,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_03_051231) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "companies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "companies", force: :cascade do |t|
     t.string "name", null: false
-    t.string "hash_id", limit: 15, collation: "utf8mb4_bin"
+    t.string "hash_id", limit: 15
     t.text "description", null: false
     t.string "address", null: false
     t.integer "average_salary"
@@ -41,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_03_051231) do
     t.index ["hash_id"], name: "index_companies_on_hash_id", unique: true
   end
 
-  create_table "company_abouts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "company_abouts", force: :cascade do |t|
     t.bigint "company_id", null: false
     t.string "title", null: false
     t.text "content", null: false
@@ -50,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_03_051231) do
     t.index ["company_id"], name: "index_company_abouts_on_company_id"
   end
 
-  create_table "company_articles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "company_articles", force: :cascade do |t|
     t.bigint "company_id", null: false
     t.string "title", null: false
     t.text "description"
@@ -61,7 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_03_051231) do
     t.index ["company_id"], name: "index_company_articles_on_company_id"
   end
 
-  create_table "company_benefits", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "company_benefits", force: :cascade do |t|
     t.bigint "company_id", null: false
     t.string "title", null: false
     t.text "content", null: false
@@ -70,7 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_03_051231) do
     t.index ["company_id"], name: "index_company_benefits_on_company_id"
   end
 
-  create_table "company_projects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "company_projects", force: :cascade do |t|
     t.bigint "company_id", null: false
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -78,7 +81,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_03_051231) do
     t.index ["company_id"], name: "index_company_projects_on_company_id"
   end
 
-  create_table "company_services", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "company_services", force: :cascade do |t|
     t.integer "company_id"
     t.string "name", null: false
     t.text "description", null: false
@@ -88,7 +91,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_03_051231) do
     t.string "url"
   end
 
-  create_table "interns", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "interns", force: :cascade do |t|
     t.bigint "company_id", null: false
     t.string "title", null: false
     t.text "description", null: false
@@ -102,18 +105,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_03_051231) do
     t.integer "recruitment_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "hash_id", limit: 15, collation: "utf8mb4_bin"
+    t.string "hash_id", limit: 15
     t.index ["company_id"], name: "index_interns_on_company_id"
   end
 
-  create_table "job_offer_technologies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "job_offer_technologies", force: :cascade do |t|
     t.bigint "job_offer_id", null: false
     t.bigint "technology_id", null: false
     t.index ["job_offer_id"], name: "index_job_offer_technologies_on_job_offer_id"
     t.index ["technology_id"], name: "index_job_offer_technologies_on_technology_id"
   end
 
-  create_table "job_offers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "job_offers", force: :cascade do |t|
     t.bigint "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -122,7 +125,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_03_051231) do
     t.index ["company_id"], name: "index_job_offers_on_company_id"
   end
 
-  create_table "technologies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "technologies", force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
     t.datetime "created_at", null: false
@@ -131,7 +134,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_03_051231) do
     t.index ["name"], name: "index_technologies_on_name", unique: true
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "provider", null: false
     t.string "uid", null: false
     t.string "name", null: false

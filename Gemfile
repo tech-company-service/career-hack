@@ -11,6 +11,7 @@ gem 'rails_admin', '~> 3.1.2'
 gem 'rails_admin-i18n'
 gem 'devise'
 gem 'rails-i18n'
+gem 'pg'
 
 # gem "jbuilder"
 gem "redis", "~> 4.0"
