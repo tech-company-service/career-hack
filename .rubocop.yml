@@ -1,0 +1,138 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  rubocop-rails
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - bin/*
+    - tmp/*
+    - db/schema.rb
+    - db/migrate/*
+    - vendor/*
+    - vendor/**/*
+    - node_modules/**/*
+  TargetRubyVersion: 3.1.4
+
+#
+# Rails
+#
+Rails:
+  Enabled: true
+
+Rails/UnknownEnv:
+  Environments:
+    - test
+    - development
+    - qa
+    - staging
+    - production
+
+#
+# Naming
+#
+Naming/FileName:
+  Exclude:
+    - '**/Gemfile'
+
+Naming/VariableNumber:
+  Enabled: false
+
+#
+# Layout
+#
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/LineLength:
+  Max: 180
+  AllowHeredoc: true
+  AllowURI: true
+  URISchemes:
+    - http
+    - https
+  Exclude:
+    - 'tmp/**/*'
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: space
+
+#
+# Lint
+#
+Lint/ConstantDefinitionInBlock:
+  Enabled: false
+
+Lint/FloatComparison:
+  Enabled: false
+
+Lint/MissingSuper:
+  Enabled: false
+
+#
+# Style
+#
+Style/AndOr:
+  EnforcedStyle: conditionals
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+  Exclude:
+    - config/application.rb
+
+Style/Documentation:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Style/RescueModifier:
+  Enabled: false
+
+Style/FloatDivision:
+  Enabled: false
+
+Style/ExplicitBlockArgument:
+  Enabled: false
+
+Style/KeywordParametersOrder:
+  Enabled: false
+
+#
+# Metrics
+#
+Metrics/ParameterLists:
+  Max: 7
+  CountKeywordArgs: true
+  MaxOptionalParameters: 7
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Metrics/BlockLength:
+  Max: 27
+  Exclude:
+    - 'spec/**/*'
+    - 'app/views/api/**/*'
+    - 'config/environments/*'
+    - 'config/routes/*'

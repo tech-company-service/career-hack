@@ -1,0 +1,5 @@
+# 例. development.yml で ローカルのredisサーバーへ接続する
+redis:
+  host: redis
+  port: 6379
+  db: 0 # DBのindex. Redisはデフォで16のDBを持ち、0〜15のindexがある。

@@ -1,6 +1,20 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :admins, controllers: { sessions: 'admins/sessions', registrations: 'admins/registrations', confirmations: 'admins/confirmations', unlocks: 'admins/unlocks' }
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  namespace :api do
+    namespace :v1 do
+      resources :articles, only: [:index]
+      resources :companies, param: :hash_id, only: [:index, :show] do
+        resources :articles, only: [:index], module: :companies
+        resources :interns, only: [:index, :show], module: :companies
+        resources :job_offers, only: [:index], module: :companies
+        resources :benefits, only: [:index], module: :companies
+        resources :services, only: [:index], module: :companies
+        get :search, on: :collection
+      end
+      resources :interns, only: [:index]
+      post 'auth/:provider/callback', to: 'users#create'
+    end
+  end
 end
