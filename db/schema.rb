@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_03_051231) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_13_152231) do
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -93,16 +93,20 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_03_051231) do
     t.string "title", null: false
     t.text "description", null: false
     t.string "link", null: false
-    t.datetime "entry_deadline_date"
-    t.datetime "started_at"
-    t.datetime "ended_at"
-    t.integer "period"
+    t.string "entry_deadline_date"
+    t.string "started_at"
+    t.string "ended_at"
     t.string "site"
     t.integer "style_type", null: false
     t.integer "recruitment_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "hash_id", limit: 15, collation: "utf8mb4_bin"
+    t.string "reward"
+    t.string "capacity"
+    t.text "necessary_requirements"
+    t.text "welcome_requirements"
+    t.text "technologies"
     t.index ["company_id"], name: "index_interns_on_company_id"
   end
 

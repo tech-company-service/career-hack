@@ -68,8 +68,8 @@ ja:
   enums:
     intern:
       recruitment_type:
-        summer_intern: 夏季インターン
-        winter_intern: 冬季インターン
+        summer_intern: サマーインターン
+        winter_intern: 冬インターン
         all_season: 通年インターン
         others: その他
       style_type:

@@ -8,7 +8,7 @@ class Api::V1::Companies::InternsController < Api::ApplicationController
   end
 
   def show
-    intern = @company.interns.find(params[:id])
+    intern = @company.interns.find_by(hash_id: params[:id])
     render json: intern, serializer: InternSerializer
   end
 
