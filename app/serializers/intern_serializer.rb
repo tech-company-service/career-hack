@@ -1,5 +1,5 @@
 class InternSerializer < ApplicationSerializer
-  attributes :intern_id, :title, :description, :link, :entry_deadline_date, :started_at, :ended_at, :period, :site, :style_type, :recruitment_type
+  attributes :intern_id, :title, :description, :link, :entry_deadline_date, :started_at, :ended_at, :site, :style_type, :recruitment_type, :hash_id, :capacity, :reward, :technologies, :necessary_requirements, :welcome_requirements
 
   belongs_to :company, serializer: CompanySerializer
 
