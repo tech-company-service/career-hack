@@ -1,8 +1,15 @@
+databases:
+  - name: career-hack-db
+    databaseName: career_hack_db
+    user: career_hack_user
+    region: singapore
+    plan: free
 services:
   - type: web
     name: career-hack
     runtime: ruby
     plan: free
+    region: singapore
     buildCommand: "./bin/render-build.sh"
     # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
     startCommand: "bundle exec rails server"
@@ -28,5 +35,6 @@ services:
     ipAllowList: # required
       - source: 0.0.0.0/0
         description: everywhere
+    region: singapore
     plan: free # optional (defaults to starter instance type)
     maxmemoryPolicy: noeviction # optional (defaults to allkeys-lru)
