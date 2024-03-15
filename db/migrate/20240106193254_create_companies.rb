@@ -2,7 +2,7 @@ class CreateCompanies < ActiveRecord::Migration[7.0]
   def up
     create_table :companies do |t|
       t.string "name", null: false
-      t.string "hash_id", limit: 15, collation: "utf8mb4_bin"
+      t.string "hash_id", limit: 15
       t.text "description", null: false
       t.string "address", null: false
       t.integer "average_salary"
