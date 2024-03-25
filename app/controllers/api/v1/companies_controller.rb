@@ -45,7 +45,14 @@ class Api::V1::CompaniesController < Api::ApplicationController
   def fetch_companies
     # Rails.chache.fetchが使えないため、Redis.currentで代用
     # 警告文要リファクタ対象
+    puts 'aaaa'
+    redis = Redis.new
+    puts redis
+    redis.set('a', 'b') if Rails.env.production?
+    puts redis.get('a')
+    puts 'bbbb'
     cached_data = Redis.current.get('companies')
+    puts 'test2' + cached_data if Rails.env.production?
 
     return cached_data unless cached_data.nil?
 

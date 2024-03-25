@@ -1,4 +1,4 @@
 redis:
-  host: redis://red-cnq64bta73kc738gkqd0:6379
-  port: 6379
+  host: <%= ENV['REDIS_HOST'] %>
+  port: <%= ENV['REDIS_PORT'] %>
   db: 0

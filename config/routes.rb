@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'api/v1/companies#index'
   devise_for :admins, controllers: { sessions: 'admins/sessions', registrations: 'admins/registrations', confirmations: 'admins/confirmations', unlocks: 'admins/unlocks' }
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
