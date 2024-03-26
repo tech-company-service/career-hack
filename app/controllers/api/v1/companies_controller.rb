@@ -1,11 +1,7 @@
 class Api::V1::CompaniesController < Api::ApplicationController
-  # 期限を設定
-  # 1日の秒数
-  EXPIRATION_TIME = 86_400
-
   def index
-    serialized_companies = fetch_companies
-    render json: serialized_companies
+    companies = Company.all
+    render json: companies, each_serializer: CompanySerializer
   end
 
   def show
@@ -40,33 +36,5 @@ class Api::V1::CompaniesController < Api::ApplicationController
       when 'interns' then array << :interns
       end
     end
-  end
-
-  def fetch_companies
-    # Rails.chache.fetchが使えないため、Redis.currentで代用
-    # 警告文要リファクタ対象
-    puts 'aaaa'
-    redis = Redis.new
-    puts redis
-    redis.set('a', 'b') if Rails.env.production?
-    puts redis.get('a')
-    puts 'bbbb'
-    cached_data = Redis.current.get('companies')
-    puts 'test2' + cached_data if Rails.env.production?
-
-    return cached_data unless cached_data.nil?
-
-    companies = Company.all
-    serialize_companies(companies)
-  end
-
-  def serialize_companies(companies)
-    serialized_companies = ActiveModelSerializers::SerializableResource.new(companies, each_serializer: CompanySerializer).to_json
-    cache_companies(serialized_companies)
-    serialized_companies
-  end
-
-  def cache_companies(serialized_companies)
-    Redis.current.set('companies', serialized_companies, ex: EXPIRATION_TIME)
   end
 end

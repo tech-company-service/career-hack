@@ -9,11 +9,6 @@ RSpec.describe 'Api::V1::CompaniesController', type: :request do
 
     subject { get '/api/v1/companies' }
 
-    before do
-      allow(Redis.current).to receive(:get).with('companies').and_return(nil)
-      allow(Redis.current).to receive(:set).with('companies', anything, ex: Api::V1::CompaniesController::EXPIRATION_TIME)
-    end
-
     it '200が返されること' do
       subject
       expect(response).to have_http_status(:ok)
