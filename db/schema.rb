@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_03_051231) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_22_165216) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -134,6 +134,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_03_051231) do
     t.index ["name"], name: "index_technologies_on_name", unique: true
   end
 
+  create_table "user_technologies", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "technology_id", null: false
+    t.integer "proficiency_level", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["technology_id"], name: "index_user_technologies_on_technology_id"
+    t.index ["user_id"], name: "index_user_technologies_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "provider", null: false
     t.string "uid", null: false
@@ -152,4 +162,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_03_051231) do
   add_foreign_key "job_offer_technologies", "job_offers"
   add_foreign_key "job_offer_technologies", "technologies"
   add_foreign_key "job_offers", "companies"
+  add_foreign_key "user_technologies", "technologies"
+  add_foreign_key "user_technologies", "users"
 end
