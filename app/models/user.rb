@@ -1,4 +1,12 @@
 class User < ApplicationRecord
+  #
+  # Associations
+  #
+  has_many :user_technologies, dependent: :destroy
+
+  #
+  # validations
+  #
   validate :unique_email_across_providers, on: :create
 
   private

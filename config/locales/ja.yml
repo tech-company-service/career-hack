@@ -13,6 +13,7 @@ ja:
       job_offer: 募集職種
       technology: 技術情報
       job_offer_technology: 募集職種の技術情報
+      user_technology: ユーザーの技術情報
     attributes:
       user:
         name: 名前
@@ -76,6 +77,15 @@ ja:
         on_line: オンライン
         off_line: オフライン
         hybrid: ハイブリッド
+      user_technology:
+        proficiency_level:
+         no_experience: 未経験
+         beginner: 授業・プログラミングスクールなどで触れたことがある
+         basic: 基本的な処理について、リファレンスを参照しながらコーディングができる
+         intermediate: 言語の特性を理解し、適切な処理をコーディングできる
+         advanced: セキュリティやパフォーマンス、保守性を意識したコーディングができる
+         expert: フレームワーク・ライブラリを作ることができる。または、言語に関する本を出版したことがある
+
 
   date:
     abbr_day_names:
