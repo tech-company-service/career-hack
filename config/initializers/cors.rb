@@ -10,7 +10,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     if Rails.env.development?
       origins "http://localhost:8000"
     elsif Rails.env.production?
-      origins ENV.fetch("FRONTEND_URL", nil)
+      origins ENV.fetch("FRONTEND_URL")
     end
 
     resource "*",
