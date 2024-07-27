@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_22_165216) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_27_140629) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -81,6 +81,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_22_165216) do
     t.index ["company_id"], name: "index_company_projects_on_company_id"
   end
 
+  create_table "company_selection_preferences", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "company_services", force: :cascade do |t|
     t.integer "company_id"
     t.string "name", null: false
@@ -89,6 +95,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_22_165216) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "url"
+  end
+
+  create_table "industries", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "interns", force: :cascade do |t|
@@ -134,6 +146,24 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_22_165216) do
     t.index ["name"], name: "index_technologies_on_name", unique: true
   end
 
+  create_table "user_company_selection_preferences", force: :cascade do |t|
+    t.bigint "company_selection_preference_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_selection_preference_id"], name: "index_user_company_on_preference_id"
+    t.index ["user_id"], name: "index_user_company_selection_preferences_on_user_id"
+  end
+
+  create_table "user_desired_industries", force: :cascade do |t|
+    t.bigint "industry_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["industry_id"], name: "index_user_desired_industries_on_industry_id"
+    t.index ["user_id"], name: "index_user_desired_industries_on_user_id"
+  end
+
   create_table "user_technologies", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "technology_id", null: false
@@ -151,6 +181,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_22_165216) do
     t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nick_name"
+    t.integer "graduate_year"
+    t.integer "target_position"
+    t.text "introduction"
+    t.string "x_url"
+    t.string "qiita_url"
+    t.string "zenn_url"
+    t.string "github_url"
+    t.string "wantedly_url"
+    t.string "other_url"
+    t.text "research_content"
+    t.text "career_vision"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
@@ -162,6 +204,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_22_165216) do
   add_foreign_key "job_offer_technologies", "job_offers"
   add_foreign_key "job_offer_technologies", "technologies"
   add_foreign_key "job_offers", "companies"
+  add_foreign_key "user_company_selection_preferences", "company_selection_preferences"
+  add_foreign_key "user_company_selection_preferences", "users"
+  add_foreign_key "user_desired_industries", "industries"
+  add_foreign_key "user_desired_industries", "users"
   add_foreign_key "user_technologies", "technologies"
   add_foreign_key "user_technologies", "users"
 end
