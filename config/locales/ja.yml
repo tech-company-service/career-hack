@@ -14,6 +14,10 @@ ja:
       technology: 技術情報
       job_offer_technology: 募集職種の技術情報
       user_technology: ユーザーの技術情報
+      industry: 業界
+      user_desired_industry: ユーザーの志望業界
+      company_selection_preference: 企業選びの軸
+      user_company_selection_preference: ユーザーの企業選びの軸
     attributes:
       user:
         name: 名前
@@ -77,14 +81,51 @@ ja:
         on_line: オンライン
         off_line: オフライン
         hybrid: ハイブリッド
-      user_technology:
-        proficiency_level:
-         no_experience: 未経験
-         beginner: 授業・プログラミングスクールなどで触れたことがある
-         basic: 基本的な処理について、リファレンスを参照しながらコーディングができる
-         intermediate: 言語の特性を理解し、適切な処理をコーディングできる
-         advanced: セキュリティやパフォーマンス、保守性を意識したコーディングができる
-         expert: フレームワーク・ライブラリを作ることができる。または、言語に関する本を出版したことがある
+    user_technology:
+      proficiency_level:
+        no_experience: 未経験
+        beginner: 授業・プログラミングスクールなどで触れたことがある
+        basic: 基本的な処理について、リファレンスを参照しながらコーディングができる
+        intermediate: 言語の特性を理解し、適切な処理をコーディングできる
+        advanced: セキュリティやパフォーマンス、保守性を意識したコーディングができる
+        expert: フレームワーク・ライブラリを作ることができる。または、言語に関する本を出版したことがある
+      target_industry:
+        web_business: "Web系事業会社"
+        software_development: "SIer・ソフト開発・システム運用"
+        infra_communication: "Nler・インフラ・通信"
+        think_tank: "シンクタンク"
+        consulting_firm: "コンサルティングファーム"
+        game: "ゲーム"
+        entertainment: "エンターテイメント（音楽・動画）"
+        advertising: "広告（総合広告・ネット広告）"
+        media: "メディア"
+        trading_company: "商社（専門商社・総合商社）"
+        finance: "金融（銀行・証券・保険・カード・リース・FinTech・仮想通貨）"
+        manufacturing: "メーカー・製造業"
+        automobile: "自動車"
+        food: "食品"
+        pharmaceutical: "医薬品"
+        consumer_goods: "消費財・日用品"
+        real_estate: "不動産"
+        logistics: "物流"
+        education: "教育"
+        human_resources: "人材"
+        food_service: "飲食"
+        other: "その他"
+        undecided: "まだ決まってない"
+      target_position:
+        frontend_engineer: "フロントエンドエンジニア"
+        backend_engineer: "バックエンドエンジニア"
+        mobile_app_engineer: "スマホアプリエンジニア"
+        infra_engineer: "インフラエンジニア"
+        security_engineer: "セキュリティエンジニア"
+        se: "SE"
+        data_scientist: "データサイエンティスト"
+        game_engineer: "ゲームエンジニア"
+        game_producer_director: "ゲームプロデューサー・ディレクター"
+        ui_ux_designer: "UI/UXデザイナー"
+        web_designer: "Webデザイナー"
+        product_manager: "プロダクトマネージャー"
 
 
   date:
