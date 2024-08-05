@@ -10,8 +10,12 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    user = User.find_or_create_by!(provider: params[:provider], uid: params[:uid], name: params[:name], email: params[:email])
-    head :ok if user
+    user = User.find_by(uid: params[:uid])
+    if user
+      head :ok
+    else
+      User.create!(provider: params[:provider], uid: params[:uid], name: params[:name], email: params[:email])
+    end
   rescue StandardError => e
     render json: { error: e.message }, status: :internal_server_error
   end
