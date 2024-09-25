@@ -15,6 +15,9 @@ Rails.application.routes.draw do
         get :search, on: :collection
       end
       resources :interns, only: [:index]
+
+      # for user
+      resources :users, param: :uid, only: [:show, :update]
       post 'auth/:provider/callback', to: 'users#create'
     end
   end
