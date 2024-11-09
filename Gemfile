@@ -4,6 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.2.2"
 gem 'active_model_serializers', '~> 0.10.0'
 gem "rails", "~> 7.0.8"
+gem "importmap-rails"
+gem 'turbo-rails'
 gem "mysql2", "~> 0.5"
 gem "puma", "~> 5.0"
 gem "config"
@@ -38,3 +40,5 @@ group :test do
 end
 
 gem "sassc-rails"
+
+gem "tailwindcss-rails", "~> 3.0"

@@ -1,0 +1,11 @@
+<div class="bg-white p-6 rounded-lg shadow-md">
+  <h2 class="text-2xl font-bold text-gray-800 mb-4"><%= @company.name %></h2>
+  <p class="text-gray-700 mb-2"><strong>住所:</strong> <%= @company.address %></p>
+  <p class="text-gray-700 mb-2"><strong>平均年収:</strong> <%= number_to_currency(@company.average_salary, unit: "¥") if @company.average_salary %></p>
+  <p class="text-gray-700 mb-2"><strong>従業員数:</strong> <%= @company.employees %> 人</p>
+  <p class="text-gray-700 mb-4"><strong>説明:</strong> <%= @company.description %></p>
+  <% if @company.recruit_url.present? %>
+    <p><strong>採用URL:</strong> <%= link_to "採用ページ", @company.recruit_url, target: "_blank", rel: "noopener", class: "text-blue-600 hover:text-blue-800" %></p>
+  <% end %>
+</div>
+
