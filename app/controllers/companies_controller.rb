@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
   def index
-    @companies = Company.all
+    @companies = Company.preload(:company_projects).all
   end
 
   def show
