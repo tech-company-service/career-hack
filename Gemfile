@@ -4,6 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.2.2"
 gem 'active_model_serializers', '~> 0.10.0'
 gem "rails", "~> 7.0.8"
+gem "importmap-rails"
+gem 'turbo-rails'
 gem "mysql2", "~> 0.5"
 gem "puma", "~> 5.0"
 gem "config"
@@ -19,6 +21,9 @@ gem "rack-cors"
 gem 'carrierwave', '~> 3.0'
 gem "hashid-rails", "~> 1.0"
 gem 'metainspector'
+gem "sassc-rails"
+gem "tailwindcss-rails", "~> 3.0"
+gem 'stimulus-rails'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -36,5 +41,3 @@ end
 group :test do
   gem 'shoulda-matchers', '~> 5.0'
 end
-
-gem "sassc-rails"

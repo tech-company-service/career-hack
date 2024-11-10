@@ -11,7 +11,7 @@ services:
       - postgres_volume:/var/lib/postgresql/data
   web:
     build: .
-    command: /bin/sh -c "rm -rf tmp/pids/server.pid && bundle exec rails s -p 3001 -b '0.0.0.0'"
+    command: /bin/sh -c "rm -rf tmp/pids/server.pid && ./bin/dev"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password

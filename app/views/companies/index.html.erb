@@ -1,0 +1,45 @@
+<div class="mx-auto p-6 max-w-7xl">
+
+  <!-- 検索フォーム -->
+  <div class="mb-6">
+    <%= form_with url: companies_path, method: :get, class: "flex items-center" do |f| %>
+      <%= f.text_field :name, class: "w-full p-3 border border-gray-200 rounded shadow-sm", placeholder: "企業名で検索" %>
+    <% end %>
+  </div>
+
+  <!-- 企業一覧 -->
+  <div>
+  <h1 class="text-xl font-bold text-gray-900 mb-3">
+    企業一覧
+    <span class="text-sm text-gray-600">全<%= @companies.count %>件</span>
+  </h1>
+  </div>
+
+  <div id="companies-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <% @companies.each do |company| %>
+      <%= link_to company_path(company.hash_id), class: "company-item bg-white border border-gray-200 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200 block" do %>
+        
+        <div class="flex items-center mb-4">
+          <span class="material-symbols-outlined h-10 w-10 mr-3">domain_disabled</span>
+          <h2 class="text-xl font-semibold text-gray-900"><%= company.name %></h2>
+        </div>
+        
+        <div class="text-gray-800 font-bold mb-4">
+          <p>平均年収: <span class="text-xl text-gray-900"><%= number_to_currency(company.average_salary, unit: "", precision: 0) %></span> 万円</p>
+          <p>初任給: <span class="text-xl text-gray-900"><%= number_to_currency(company.initial_salary, unit: "", precision: 0) %></span> 万円</p>
+        </div>
+        
+        <div class="w-full border"></div>
+
+        <p class="text-gray-600 mt-3 mb-4 text-sm"><%= truncate(company.description, length: 40) %></p>
+
+        <div class="flex overflow-x-scroll whitespace-nowrap -m-1" style="-ms-overflow-style: none; scrollbar-width: none;">
+          <% company.company_projects.each do |project| %>
+            <span class="m-1 border border-black text-black bg-white text-xs  px-2.5 py-0.5 rounded hover:bg-black hover:border-white hover:text-white transition duration-300 ease-in-out"><%= project.name %></span>
+          <% end %>
+        </div>
+        
+      <% end %>
+    <% end %>
+  </div>
+</div>

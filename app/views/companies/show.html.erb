@@ -1,0 +1,61 @@
+<div class="container mx-auto mt-6 p-6 max-w-4xl bg-white rounded-lg shadow-md">
+  <!-- 企業ロゴと名前 -->
+  <div class="flex items-center mb-6">
+    <span class="material-symbols-outlined h-10 w-10 mr-3">domain_disabled</span>
+    <h1 class="text-3xl font-bold text-gray-800"><%= @company.name %></h1>
+  </div>
+
+  <!-- カテゴリタグ -->
+  <div class="flex overflow-x-scroll whitespace-nowrap -m-1" style="-ms-overflow-style: none; scrollbar-width: none;">
+    <% @company.company_projects.each do |project| %>
+      <span class="m-1 border border-black text-black bg-white text-xs  px-2.5 py-0.5 rounded hover:bg-black hover:border-white hover:text-white transition duration-300 ease-in-out"><%= project.name %></span>
+    <% end %>
+  </div>
+
+  <!-- 企業概要 -->
+  <p class="text-gray-600 mb-6 text-base"><%= @company.description %></p>
+
+  <!-- VisionとPurpose -->
+  <div data-controller="accordion">
+    <% @company.company_abouts.each do |company_about| %>
+      <div class="border-b">
+        <!-- ボタン部分 -->
+        <button data-action="accordion#toggle" data-accordion-target="button" class="flex justify-between items-center w-full py-5 px-3 text-left focus:outline-none">
+          <span class="text-sm md:text-lg font-semibold"><%= company_about.title %></span>
+          <span data-accordion-target="icon" class="accordion-icon">▶︎</span>
+        </button>
+        
+        <!-- 内容部分 -->
+        <div data-accordion-target="content" style="display: none;" class="pb-5 px-3 whitespace-pre-line text-sm">
+          <%= company_about.content %>
+        </div>
+      </div>
+    <% end %>
+  </div>  
+
+  <!-- 年収と住所、従業員数 -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-800">
+    <div>
+      <p class="font-semibold">新卒年収</p>
+      <p class="text-2xl font-bold text-gray-900"><%= number_to_currency(@company.initial_salary, unit: "", precision: 0) %> 万円</p>
+    </div>
+    <div>
+      <p class="font-semibold">平均年収</p>
+      <p class="text-2xl font-bold text-gray-900"><%= number_to_currency(@company.average_salary, unit: "", precision: 0) %> 万円</p>
+      <p class="text-sm text-gray-500">※ 有価証券報告書を参照</p>
+    </div>
+    <div>
+      <p class="font-semibold">住所</p>
+      <p class="text-gray-700"><%= @company.address %></p>
+    </div>
+    <div>
+      <p class="font-semibold">従業員数</p>
+      <p class="text-gray-700"><%= @company.employees %>人</p>
+    </div>
+  </div>
+
+  <!-- 修正依頼ボタン -->
+  <div class="mt-6 flex justify-end">
+    <button class="px-4 py-2 border border-gray-400 rounded-lg text-gray-700 hover:bg-gray-100">修正依頼</button>
+  </div>
+</div>
