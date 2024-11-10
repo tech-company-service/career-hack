@@ -21,6 +21,9 @@ gem "rack-cors"
 gem 'carrierwave', '~> 3.0'
 gem "hashid-rails", "~> 1.0"
 gem 'metainspector'
+gem "sassc-rails"
+gem "tailwindcss-rails", "~> 3.0"
+gem 'stimulus-rails'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -38,7 +41,3 @@ end
 group :test do
   gem 'shoulda-matchers', '~> 5.0'
 end
-
-gem "sassc-rails"
-
-gem "tailwindcss-rails", "~> 3.0"
