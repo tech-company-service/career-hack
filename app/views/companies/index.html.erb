@@ -2,17 +2,20 @@
 
   <!-- 検索フォーム -->
   <div class="mb-6">
-    <%= form_with url: companies_path, method: :get, class: "flex items-center" do |f| %>
-      <%= f.text_field :name, class: "w-full p-3 border border-gray-200 rounded shadow-sm", placeholder: "企業名で検索" %>
+    <%= form_with url: companies_path, method: :get, class: "flex items-center relative" do |f| %>
+      <%= f.text_field :name, class: "w-full p-3 pr-10 border border-gray-200 rounded shadow-sm", placeholder: "企業名で検索" %>
+      <button type="submit" class="absolute right-3 top-4">
+        <span class="material-icons text-gray-400">search</span>
+      </button>
     <% end %>
   </div>
-
+  
   <!-- 企業一覧 -->
   <div>
-  <h1 class="text-xl font-bold text-gray-900 mb-3">
-    企業一覧
-    <span class="text-sm text-gray-600">全<%= @companies.count %>件</span>
-  </h1>
+    <h1 class="text-xl font-bold text-gray-900 mb-3">
+      企業一覧
+      <span class="text-sm text-gray-600">全<%= @companies.count %>件</span>
+    </h1>
   </div>
 
   <div id="companies-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -20,16 +23,29 @@
       <%= link_to company_path(company.hash_id), class: "company-item bg-white border border-gray-200 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200 block" do %>
         
         <div class="flex items-center mb-4">
-          <span class="material-symbols-outlined h-10 w-10 mr-3">domain_disabled</span>
-          <h2 class="text-xl font-semibold text-gray-900"><%= company.name %></h2>
+          <span class="material-icons h-10 w-10 mr-3" style="font-size: 32px">domain</span>
+          <h2 class="text-xl ml-2 pb-1 font-semibold text-gray-900"><%= company.name %></h2>
         </div>
         
-        <div class="text-gray-800 font-bold mb-4">
-          <p>平均年収: <span class="text-xl text-gray-900"><%= number_to_currency(company.average_salary, unit: "", precision: 0) %></span> 万円</p>
-          <p>初任給: <span class="text-xl text-gray-900"><%= number_to_currency(company.initial_salary, unit: "", precision: 0) %></span> 万円</p>
+        <div class="w-1/2 text-gray-800 mb-4 space-y-2">
+          <div class="flex justify-between items-center whitespace-nowrap">
+            <p>平均年収:</p>
+            <div>
+              <span class="text-xl text-gray-900 font-roboto font-bold"><%= number_to_currency(company.average_salary, unit: "", precision: 0) %></span>
+              <span class="text-lg">万円</span>
+            </div>
+          </div>
+          <div class="flex justify-between items-center whitespace-nowrap">
+            <p>初任給:</p>
+            <div>
+              <span class="text-xl text-gray-900 font-roboto font-bold"><%= number_to_currency(company.initial_salary, unit: "", precision: 0) %></span>
+              <span class="text-lg">万円</span>
+            </div>
+          </div>
         </div>
         
-        <div class="w-full border"></div>
+        
+        <div class="border-t border-gray-300 my-4 w-full"></div>
 
         <p class="text-gray-600 mt-3 mb-4 text-sm"><%= truncate(company.description, length: 40) %></p>
 
