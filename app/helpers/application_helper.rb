@@ -1,6 +1,6 @@
 module ApplicationHelper
   def format_date(date_string)
-    return '-' if date_string.nil? || date_string.empty?
+    return '-' if date_string.blank?
 
     case date_string.length
     when 4

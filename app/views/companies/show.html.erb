@@ -10,7 +10,7 @@
   
     <!-- 右側: 修正依頼ボタン -->
     <div class="mt-2 md:mt-0">
-      <button class="px-4 py-2 border border-gray-400 rounded-lg text-gray-700 hover:bg-gray-100">
+      <button class="px-2 py-1 border border-gray-400 rounded text-sm text-gray-700 hover:bg-gray-100">
         修正依頼
       </button>
     </div>
@@ -46,7 +46,7 @@
   </div>  
 
   <!-- 年収と住所、従業員数 -->
-  <div class="flex justify-between text-gray-800">
+  <div class="flex flex-col sm:flex-row justify-between text-gray-800">
     <div class="p-4">
       <div class="mb-4">
         <p class="font-semibold">新卒年収</p>
@@ -58,7 +58,7 @@
         <p class="text-sm text-gray-500">※ 有価証券報告書を参照</p>
       </div>
     </div>
-    <div class="mt-2 pt-10">
+    <div class="mt-2 py-10 px-4">
       <div class="mb-4">
         <p class="">住所</p>
         <p class="text-gray-600"><%= @company.address %></p>
@@ -178,11 +178,6 @@
         <%= link_to "もっと見る", "", class: "text-gray-600 hover:text-gray-800 font-semibold" %>
       </div>
     <% end %>
-  </div>
-  
-  <!-- 修正依頼ボタン -->
-  <div class="mt-6 flex justify-end">
-    <button class="px-4 py-2 border border-gray-400 rounded-lg text-gray-700 hover:bg-gray-100">修正依頼</button>
   </div>
 </div>
 <% end %>
