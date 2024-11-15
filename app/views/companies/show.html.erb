@@ -1,9 +1,21 @@
-<div class="container mx-auto mt-6 p-6 max-w-4xl bg-white rounded-lg shadow-md">
-  <!-- 企業ロゴと名前 -->
-  <div class="flex items-center mb-6">
-    <span class="material-symbols-outlined h-10 w-10 mr-3">domain_disabled</span>
-    <h1 class="text-3xl font-bold text-gray-800"><%= @company.name %></h1>
+<%= turbo_frame_tag "display_area" do %>
+
+<div class="container mx-auto mt-6 p-6 bg-white rounded-lg shadow-md">
+  <div class="flex flex-col md:flex-row items-center justify-between mb-6">
+    <!-- 左側: アイコンとタイトル -->
+    <div class="flex items-center mb-4 md:mb-0">
+      <span class="material-icons h-10 w-10 mr-3" style="font-size: 32px">domain</span>
+      <h1 class="text-xl md:text-3xl font-bold text-gray-800"><%= @company.name %></h1>
+    </div>
+  
+    <!-- 右側: 修正依頼ボタン -->
+    <div class="mt-2 md:mt-0">
+      <button class="px-2 py-1 border border-gray-400 rounded text-sm text-gray-700 hover:bg-gray-100">
+        修正依頼
+      </button>
+    </div>
   </div>
+  
 
   <!-- カテゴリタグ -->
   <div class="flex overflow-x-scroll whitespace-nowrap -m-1" style="-ms-overflow-style: none; scrollbar-width: none;">
@@ -13,7 +25,7 @@
   </div>
 
   <!-- 企業概要 -->
-  <p class="text-gray-600 mb-6 text-base"><%= @company.description %></p>
+  <p class="text-gray-600 my-6 text-base"><%= @company.description %></p>
 
   <!-- VisionとPurpose -->
   <div data-controller="accordion">
@@ -34,28 +46,138 @@
   </div>  
 
   <!-- 年収と住所、従業員数 -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-800">
-    <div>
-      <p class="font-semibold">新卒年収</p>
-      <p class="text-2xl font-bold text-gray-900"><%= number_to_currency(@company.initial_salary, unit: "", precision: 0) %> 万円</p>
+  <div class="flex flex-col sm:flex-row justify-between text-gray-800">
+    <div class="p-4">
+      <div class="mb-4">
+        <p class="font-semibold">新卒年収</p>
+        <p class="text-2xl font-bold text-gray-900"><%= number_to_currency(@company.initial_salary, unit: "", precision: 0) %> 万円</p>
+      </div>
+      <div>
+        <p class="font-semibold">平均年収</p>
+        <p class="text-2xl font-bold text-gray-900"><%= number_to_currency(@company.average_salary, unit: "", precision: 0) %> 万円</p>
+        <p class="text-sm text-gray-500">※ 有価証券報告書を参照</p>
+      </div>
     </div>
-    <div>
-      <p class="font-semibold">平均年収</p>
-      <p class="text-2xl font-bold text-gray-900"><%= number_to_currency(@company.average_salary, unit: "", precision: 0) %> 万円</p>
-      <p class="text-sm text-gray-500">※ 有価証券報告書を参照</p>
-    </div>
-    <div>
-      <p class="font-semibold">住所</p>
-      <p class="text-gray-700"><%= @company.address %></p>
-    </div>
-    <div>
-      <p class="font-semibold">従業員数</p>
-      <p class="text-gray-700"><%= @company.employees %>人</p>
+    <div class="mt-2 py-10 px-4">
+      <div class="mb-4">
+        <p class="">住所</p>
+        <p class="text-gray-600"><%= @company.address %></p>
+      </div>
+      <div>
+        <p class="">従業員数</p>
+        <p class="text-gray-600"><%= @company.employees %>人</p>
+      </div>
     </div>
   </div>
 
-  <!-- 修正依頼ボタン -->
-  <div class="mt-6 flex justify-end">
-    <button class="px-4 py-2 border border-gray-400 rounded-lg text-gray-700 hover:bg-gray-100">修正依頼</button>
+  <div class="border-b"></div>
+
+  <!-- 記事 -->
+  <div class="p-3">
+    <h1 class="mt-8 text-3xl font-bold text-gray-800">社内エンジニアを知る記事</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-4">
+      <% @company.company_articles.limit(3).each do |company_article| %>
+        <%= link_to company_article.url, target: "_blank", rel: "noopener noreferrer", class: "bg-white rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105" do %>
+          <!-- ogp画像 -->
+          <div class="relative h-48">
+            <img src="<%= company_article.ogp_image_url %>" class="object-cover w-full h-full" alt="<%= company_article.title %>">
+          </div>
+          <!-- 記事情報 -->
+          <div class="p-4">
+            <h2 class="text-xl font-semibold text-gray-800"><%= company_article.title %></h2>
+            <p class="text-gray-600 mt-2 line-clamp-2"><%= company_article.description %></p>
+          </div>
+        <% end %>
+      <% end %>
+  </div>
+  
+    <% if @company.company_articles.count > 3 %>
+      <div class="mt-6">
+        <%= link_to "もっと見る", "", class: "text-gray-600 hover:text-gray-800 font-semibold" %>
+      </div>
+    <% end %>
+  </div>
+  
+  
+
+  <div class="border-b"></div>
+
+  <!-- 採用情報 -->
+
+  <div class="p-3">
+    <h1 class="mt-8 text-3xl font-bold text-gray-800">採用情報</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-4">
+      <% @company.job_offers.limit(6).each do |job_offer| %>
+        <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200">
+          <!-- 職種名 -->
+          <h2 class="text-xl font-semibold text-gray-800 mb-2"><%= job_offer.name %></h2>
+          <!-- 職種概要 -->
+          <p class="text-gray-600 line-clamp-3"><%= job_offer.description %></p>
+        </div>
+      <% end %>
+    </div>
+
+    <% if @company.job_offers.count > 6 %>
+      <div class="mt-6">
+        <%= link_to "もっと見る", "", class: "text-gray-600 hover:text-gray-800 font-semibold" %>
+      </div>
+    <% end %>
+  </div>
+  
+
+
+  <div class="border-b"></div>
+  <!-- サービス -->
+  <div class="p-3">
+    <h1 class="mt-8 text-3xl font-bold text-gray-800">サービス情報</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-4">
+      <% @company.company_services.limit(6).each do |service| %>
+        <div class="bg-white rounded-lg shadow-md p-6 relative hover:shadow-lg transition-shadow duration-200">
+          <!-- サービスURLボタン -->
+          <%= link_to service.url, target: "_blank", rel: "noopener noreferrer", class: "absolute top-4 right-4 px-3 py-1 text-gray-500 rounded-lg text-sm flex items-center justify-center" do %>
+            <span class="material-icons" style="font-size: 20px">
+              open_in_new
+            </span>
+          <% end %>
+  
+          <!-- サービス情報 -->
+          <h2 class="text-xl font-semibold text-gray-800 mb-2"><%= service.name %></h2>
+          <p class="text-gray-600 line-clamp-3 mb-2"><%= service.description %></p>
+          <p class="text-sm text-gray-500">
+            ローンチ日: <%= format_date(service.launched_at) %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  
+    <% if @company.company_services.count > 6 %>
+      <div class="mt-6">
+        <%= link_to "もっと見る", "", class: "text-gray-600 hover:text-gray-800 font-semibold" %>
+      </div>
+    <% end %>
+  </div>
+
+
+  <div class="border-b"></div>
+  <!-- 福利厚生 -->
+  <div class="p-3">
+    <h1 class="mt-8 text-3xl font-bold text-gray-800">福利厚生</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-4">
+      <% @company.company_benefits.limit(6).each do |benefit| %>
+        <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200">
+          <!-- タイトル -->
+          <h2 class="text-xl font-semibold text-gray-800 mb-2"><%= benefit.title %></h2>
+          <!-- 内容 -->
+          <p class="text-gray-600 line-clamp-3"><%= benefit.content %></p>
+        </div>
+      <% end %>
+    </div>
+
+    <% if @company.company_benefits.count > 6 %>
+      <div class="mt-6">
+        <%= link_to "もっと見る", "", class: "text-gray-600 hover:text-gray-800 font-semibold" %>
+      </div>
+    <% end %>
   </div>
 </div>
+<% end %>
