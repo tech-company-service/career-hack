@@ -1,10 +1,10 @@
 class CompaniesController < ApplicationController
   def index
-    if params[:name].present?
-      @companies = Company.preload(:company_projects).where("name LIKE ?", "%#{params[:name]}%")
-    else
-      @companies = Company.preload(:company_projects).all
-    end
+    @companies = if params[:name].present?
+                   Company.preload(:company_projects).where("name LIKE ?", "%#{params[:name]}%")
+                 else
+                   Company.preload(:company_projects).all
+                 end
 
     respond_to do |format|
       format.html
